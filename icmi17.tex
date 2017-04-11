@@ -7,17 +7,38 @@
 \title[SHORT TITLE]{LONG TITLE}
 \subtitle{SUBTITLE}
 
-\author{AUTHOR 1}
-\orcid{wtf is orcid}
+\author{Jacobus C. Lock}
 \affiliation{%
-  \insitution{INSTITUTION}
-  \department{DEPARTMENT}
-  \streetaddress{ADDRESS}
-  \city{CITY}
-  \state{STATE}
-  \postcode{POST CODE}
-  \country{COUNTRY}}
-\email{EMAIL}
+  \institution{University of Lincoln}
+  \department{School of Computer Science}
+  \streetaddress{Brayford Pool}
+  \city{Lincoln}
+  \state{Lincolnshire}
+  \postcode{LN6 7TS}
+  \country{United Kingdom}}
+\email{jlock@lincoln.ac.uk}
+
+\author{Grzegorz Cielniak}
+\affiliation{%
+  \institution{University of Lincoln}
+  \department{School of Computer Science}
+  \streetaddress{Brayford Pool}
+  \city{Lincoln}
+  \state{Lincolnshire}
+  \postcode{LN6 7TS}
+  \country{United Kingdom}}
+\email{gcielniak@lincoln.ac.uk}
+
+\author{Nicola Bellotto}
+\affiliation{%
+  \institution{University of Lincoln}
+  \department{School of Computer Science}
+  \streetaddress{Brayford Pool}
+  \city{Lincoln}
+  \state{Lincolnshire}
+  \postcode{LN6 7TS}
+  \country{United Kingdom}}
+\email{nbellotto@lincoln.ac.uk}
 
 \thanks{THANKS}
 
@@ -25,7 +46,7 @@
 \keywords{KEY WORDS}
 
 \acmYear{2017}
-\received{July 2017}
+\received{May 2017}
 
 \maketitle
 
@@ -38,7 +59,7 @@
 What is the problem? reference AAAI paper
 What is the contribution of this paper?
 
-The UK's Royal National Institute for the Blind (RNIB), a leading organisation in the area, has identified a number of challenges for the modern blind and visually impaired (henceforth reffered to as the VI) person. These include the latter's ability to safely and independently use public transport and navigate in unfamiliar environments~\cite{rnib-objectives}. Recent technological advances in the fields of mobile computing and computer vision have allowed for new and innovative solutions to come to the fore to address these challenges. 
+The UK's Royal National Institute for the Blind (RNIB), a leading organisation in the area, has identified a number of challenges for the modern blind and visually impaired (henceforth referred to as the VI) person. These include the latter's ability to safely and independently use public transport and navigate in unfamiliar environments~\cite{rnib-objectives}. Recent technological advances in the fields of mobile computing and computer vision have allowed for new and innovative solutions to come to the fore to address these challenges. 
 
 To this end, we have proposed a mobile device-based navigation system that caters to the needs of the blind and visually impaired that is based on a Google Project Tango device {CITE AAAI PAPER}. A Tango-enabled device comes pre-equipped with powerful image-processing, localisation and depth-perception capabilities and is built on top of a standard Android platform, giving us access to the entire set of input/output options that Android has to offer. The proposed system will use multiple feedback modes to guide a user toward a target destination while providing information on any oncoming obstacles.
 
@@ -48,9 +69,56 @@ The remainder of this paper is organised as follows: HOW IS PAPER ORGANISED?
 
 \section{Previous Work}
 
+-controlling people
+-interface for the blind
+
 \subsection{System Description}
 
 \section{Tests Performed}
+
+To determine how effective the individual feedback modes of our HMI is at directing a user to perform a given task, we performed a set of tests with blindfolded users using only a limited set of the feedback modes. The reason for only testing one or two modes together is to simplify the testing procedure and incrementally build up our knowledge of the interactions between the user and the feedback mode so that we can eventually integrate all of the feedback modes into a single implementation and perform an optimal set of tests that will provide us with all of the important data that we require. 
+
+In this case, we tested the spatialised sound feedback mode; that is to say we tested how effective a spatial tone, with varying pitch, is at directing a user to pan and tilt a camera to find a target. Furthermore, we also carried out a set of pre-screening tests to determine each test subject's hearing characteristics. The following sections will discuss all of these tests and their objectives in detail. 
+
+\subsection{Test Objectives}
+
+Every subject was asked to perform 4 different tests: the first three were pre-screening tests to evaluate the subjects' hearing characteristics and the last to test how effective our HMI's spatial sound is at controlling a subject's pan and tilt. Furthermore, we wish to determine how the different values of this spatial sound affects a subject's performance. 
+
+The hearing characteristics we wished to determine were the subjects' spatial awareness, tone limits and tone discrimination capability. For the spatial sound test we wish to determine how quickly each subject can find their target's, what each subject's target search strategy is as well as how the different feedback parameter values affect these performances. 
+
+\subsection{Test Procedure}
+
+For the tests we used 40 blindfolded test volunteers and had them perform a series of tests using our system and a pair of bone conducting headphones. The test subjects were recruited on a volunteer-basis and consisted of a diverse group of undergraduate students with ages ranging between [WHAT ARE THE AGES?], with [WHAT ARE THE GENDER NUMBERS?]. The subjects also reported having no significant sight or hearing issues or any other major disability. 
+
+The 40 test subjects were asked to complete 4 sets of tests, each of which is discussed here.
+
+\subsubsection{Spatial Awareness Test}
+
+In this test, we determine a subject's ability to tell the direction a sound is coming from. To do this, we play a 512Hz sinusoidal tone to the candidate through the headphones that comes from either the left or right of the subject. The subject must then select whether the sound source is to the left or right. The sound source location is simulated using a head-related transfer function (HRTF). The longer this test is run, the source moves closer to the centre of the subject making it more difficult to localise the sound source. 
+
+For this progressive increase in difficulty, a 2-up, 1-down step process is used, meaning that for every 2 correct answers, the distance to the centre halves, making the test harder. Conversely, it becomes easier for each incorrect answer by doubling the sound source's distance from the centre. We also select to use 2 different step sequences, one starting at a large distance from the user and the other at a close distance, giving us an `easy' and `hard' step respectively. The terminating condition for the test is when the 2 step sequences are within 2 step ranges of each other for 3 consecutive guesses. This will give us a distance band within which the candidate is capable of localising the sound source. Each candidate will performed this test three times. 
+
+\subsubsection{Pitch Discrimination Test}
+
+For this test, we determine a subject's ability to tell tones apart, i.e. how well can they tell if a tone is high or low pitched? Here we play 2 tones to the subjects, one after the other, with one tone being higher or lower-pitched than the other. The subject's were asked to select whether the second tone was higher or lower-pitched than the first tone.
+
+As with the spatial test, a 2-up, 1-down step process is used: for every 2 consecutive correct answers, the pitch difference between the two tones will be halved, increasing the difficulty, and the difference is doubled for every incorrect answer, making the tones easier to differentiate. Two step sequences are again used here, one starting with a large pitch difference between the tones and the other with a small difference. The termination condition is when the two step sequences are within one octave of each other for 3 consecutive answers. Each subject performed this test twice. 
+
+\subsubsection{Tone Limit Test}
+
+We determined the candidates' tone limits as a final test before they took part in the  main, target-finding test. We did this by playing a single tone that increases in pitch as time progresses. The candidate was then asked to click a button as soon as he/she started hearing a tone and to click the button again when the tone became inaudible. The subject was then asked to repeat the process 6 times, but the tone direction was reversed after each run, meaning that the tone either started high and went low or started low and went high. 
+
+\subsubsection{Target Search Test}
+
+The final test is the main one and will answer the question we are most interested in: how well does a spatial tone direct a user to look in a specific direction, and how do the parameters of this tone affect the user's performance in this task? 
+
+Here a candidate was blindfolded and given a Tango device running an app written specifically for this test. When the test started, a set of virtual targets were presented one at a time to the subject on the Tango's screen. Then, depending on the direction the candidate is currently pointing the camera relative to the target's position, the Tango generates and plays a tone via a bone-conducting headphone to indicate the pan and tilt adjustment the candidate needs to make the camera to face the target. These instructions are a spatialised tone with varying pitch: an HRTF will indicate whether the target is to the left or the right and the pitch will indicate whether the candidate should be looking up (high pitch) or down (low pitch) to find the target. 
+
+Once the candidate pointed the camera toward the target, the HRTF centred the tone in front of the candidate with a neutral pitch of 512Hz, which we used as the `on-target' pitch for all of our tests (the candidates were given a few minutes without a blindfold where they could familiarise themselves with the system where they could confirm the target's location with their own eyes). However, the candidate had to decide for themselves whether they truly were looking at the target and tap the screen to indicate the location they believe to be in (i.e. the current location they are looking at). At this point a new target is presented to the candidate which they had to search for again. 28 targets are presented to each subject per test round. 
+
+After every round of these tests, the parameters controlling the tone's behaviour were adjusted. In this case, the rate of change of the tone's pitch was adjusted to make the pitch increase at a lower or higher rate as a function of the elevation angle between the target and the candidate's current looking direction. This was done to see whether, for example, a more rapid increase in pitch will help the candidate find the target faster. 
+
+For this test, the distance between the candidate and the target is not considered here. Therefore, the target's are generated on a plane at a constant distance from the candidate, in this case 2m. Throughout the test, various parameters of the target and the candidate are recorded and streamed in real-time to a laptop computer via a WiFi connection.
 
 \section{Results}
 
