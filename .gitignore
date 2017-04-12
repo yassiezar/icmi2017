@@ -6,3 +6,4 @@
 *.bst
 *.blg
 *.pdf
+!figures/
