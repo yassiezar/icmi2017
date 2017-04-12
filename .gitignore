@@ -6,4 +6,4 @@
 *.bst
 *.blg
 *.pdf
-!figures/
+!figures/*
