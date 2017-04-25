@@ -64,7 +64,7 @@ What is the contribution of this paper?
 
 The UK's Royal National Institute for the Blind (RNIB), a leading organisation in the area, has identified a number of challenges for the modern blind and visually impaired (henceforth referred to as the VI) person. These include the latter's ability to safely and independently use public transport and navigate in unfamiliar environments~\cite{rnib-objectives}. Recent technological advances in the fields of mobile computing and computer vision have allowed for new and innovative solutions to come to the fore to address these challenges. 
 
-To this end, we have proposed a mobile device-based navigation system that caters to the needs of the blind and visually impaired that is based on a Google Project Tango device {CITE AAAI PAPER}. A Tango-enabled device comes pre-equipped with powerful image-processing, localisation and depth-perception capabilities and is built on top of a standard Android platform, giving us access to the entire set of input/output options that Android has to offer. The proposed system will use multiple feedback modes to guide a user toward a target destination while providing information on any oncoming obstacles.
+To this end, we propose a mobile device-based navigation system that caters to the needs of the blind and visually impaired that is based on a Google Project Tango device {CITE AAAI PAPER}. A Tango-enabled device comes pre-equipped with powerful image-processing, localisation and depth-perception capabilities and is built on top of a standard Android platform, giving us access to the entire set of input/output options that Android has to offer. The proposed system will use multiple feedback modes to guide a user toward a target destination while providing information on any oncoming obstacles.
 
 In this paper, we discuss in detail how one of these feedback modes are used in our system. We also discuss the experiment we performed to determine how effective this mode is at directing a user to completing a given task, as well as how the mode's parameter values affect a user's performance at completing the aforementioned task. 
 
@@ -81,6 +81,8 @@ Delivering a system that will allow the blind and visually impaired (VI) to inde
 One approach that has been investigated is to outfit the existing white walking cane with various sensors, such as sonar, radar, motor encoders, etc.,~\cite{ulrich1997, marion2008batcane} to detect warn the user of upcoming obstacles from a distance instead of relying on haptic feedback from the impact between the cane and the obstacle. These systems are fairly simple and reliable and are familiar to the VI, but they are typically clunky, advertising the users' disability, which can be a major hurdle to market penetration. Another, more discreet approach, was to equip a normal to act as an radio-frequency identification (RFID) antennae to read a set of RFID tags that are placed around the environment at key spots or along a path~\cite{faria2010electronic, willis2005}. This approach to modifying the traditional cane is more discreet than the systems mentioned earlier and has been shown to work well. However, the major drawback here is the significant cost of modifying existing infrastructure with RFID tags and maintaining them to keep up with a changing environment. GPS systems, such as the Drishti system~\cite{ran2004drishti}, while cheap and reliable in open outdoor environments, are not applicable here since we wish our system to be usable in built-up urban areas and indoors where GPS signals are notoriously unreliable. 
 
 Computer vision-based systems provide a good compromise between usability, cost and accuracy and has has been the focus of much research in the recent past. One popular solution is to use an RGB-D depth sensing camera, which are becoming increasingly more accurate and cheaper, to build a 3D image map which will allow a user to safely traverse through~\cite{lee2015, rodriguez2012obstacle}. However, these systems have not yet been thoroughly tested with VI people in a real environment. Another approach is to use object recognition techniques to detect various objects and landmarks, such as doors, staircases, etc.~\cite{tian2013b}, and communicate their relative location to the user. Furthermore, though not strictly useful for navigation but nice to have, are other assistive functionalities, such as face recognition and currency reading, that can also be added to enhance the VI user's experience and add more usability to the system~\cite{chessa2016}.
+
+[BESPREEK studies wat kop tracker gebruik en noem dalk hoe ons anders is]
 
 \subsection{Interfacing}
 
@@ -100,13 +102,15 @@ The system we intend to ultimately deliver is a portable navigation device that 
 
 The system is based on a Google Tango device, which come equipped with an RGB-D camera to estimate depth and combines an inertial measurement unit (IMU) with powerful and robust landmark recognition and image processing algorithms to localise itself and `close the loop'. : a Android-based cellular device which comes pre-equipped with powerful localisation, depth perception and image processing capabilities. Add added benefit of this platform is its familiar, compact form-factor which will help overcome the hurdle of user-acceptance and usability. 
 
-We intent to use multiple feedback modes to provide the VI user with navigation and obstacle avoidance instructions. These modes are spatialised audio, voice prompts and voice cues. However, for this series of experiments, we only employed the spatialised audio mode in order to determine its efficacy. 
+We intend to use multiple feedback modes to provide the VI user with navigation and obstacle avoidance instructions. These modes are spatialised audio, voice prompts and voice cues. However, for this series of experiments, we only employed the spatialised audio mode in order to determine its efficacy. 
 
 \section{Audio Interface}
 
 For the series of experiments we performed, we only used the audio feedback mode to interface with the user. This audio component is responsible for conveying the 3D position of a target relative to the target in terms of pan and tilt angles, as well as distance to the target, using a scheme similar to a polar coordinate system. To simplify the experiment process and better isolate the different variables, we only enabled the pan and tilt parts of the interface, leaving the distance out to be experimented with in the future.  
 
 The audio being generated is a sinusoidal sound wave that is constantly generated and played to the user through bone-conducting headphones. We select a sinusoidal wave due to it being relatively simple to manipulate and analyse. Furthermore, we opted to use an external, bone-conducting headset to play the audio to better simulate the use-case we are designing the system toward where our system will act as a supplementary navigation aid which does not interfere with their other senses; in particular their sense of hearing, which they tend to rely upon heavily [CITE][REVIEW THIS SENTENCE].
+
+[BESPREEK HOEKOM dit dalk beter is om nie kop tracker te gebruik nie en om liewers hand-gedrewe soektog te gebruik]
 
 \subsection{Pan Description}
 
@@ -188,7 +192,7 @@ The first test that each test subject completed was the tone differentiation tes
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/tone_guesses.png}
-  \caption{A bar plot showing the subjects' guesses about the tone differences.}
+  \caption{A bar plot showing the subjects' guesses about the tone differences [SIT HATCH IN FIG].}
   \label{fig:tone-guesses}
 \end{figure}
 
@@ -207,7 +211,7 @@ Figure~\ref{fig:location-guesses} shows the results for the spatial awareness te
 
 In Figure~\ref{fig:location-guesses}, with the relatively low number of red, incorrect guesses, we see that the subjects were far more successful in correctly guessing the location of the sound source. This is further supported by the large number of samples at the \SI{0.03125}{\m}, which was the minimum achievable level for this test, indicating that the subjects reached this level more frequently and consistently. 
 
-Again, these resuts  in line with what we expected and is supported by literature which indicates that humans are very adept at localising the location of a sound source and this capability was apparent for HRTF-generated pan location. 
+Again, these results  in line with what we expected and is supported by literature which indicates that humans are very adept at localising the location of a sound source and this capability was apparent for HRTF-generated pan location. 
 
 %\section{Discussion}
 
