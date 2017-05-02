@@ -5,5 +5,4 @@
 *.aux
 *.bst
 *.blg
-*.pdf
 !figures/*
