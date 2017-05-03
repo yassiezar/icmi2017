@@ -82,7 +82,7 @@ One approach that has been investigated is to outfit the existing white walking 
 
 Computer vision-based systems provide a good compromise between usability, cost and accuracy and has has been the focus of much research in the recent past. One popular solution is to use an RGB-D depth sensing camera, which are becoming increasingly more accurate and cheaper, to build a 3D image map which will allow a user to safely traverse through~\cite{lee2015, rodriguez2012obstacle}. However, these systems have not yet been thoroughly tested with VI people in a real environment. Another approach is to use object recognition techniques to detect various objects and landmarks, such as doors, staircases, etc.~\cite{tian2013b}, and communicate their relative location to the user. Furthermore, though not strictly useful for navigation but nice to have, are other assistive functionalities, such as face recognition and currency reading, that can also be added to enhance the VI user's experience and add more usability to the system~\cite{chessa2016}.
 
-[BESPREEK studies wat kop tracker gebruik en noem dalk hoe ons anders is]
+It should also be noted that a large amount of the work discussed here uses a head-mounted tracking unit or camera to track where the user is looking and generate navigation instructions based on the user's gaze direction. While this approach is quite simple and keeps the user's hands free to perform other actions, it is quite cumbersome and in the way and the ideal system would require the user to rely on as few apparatus and devices as possible. 
 
 \subsection{Interfacing}
 
@@ -100,9 +100,16 @@ To the authors' knowledge, no extensive work or experiments have been done to de
 
 The system we intend to ultimately deliver is a portable navigation device that caters to the needs of the blind by using a combination of different feedback modes to facilitate two-way communication between the user and the device. We use multiple modes to overcome the bandwidth limitation that is introduced when visual data is translated into audio cues and voice commands, for example. 
 
-The system is based on a Google Tango device, which come equipped with an RGB-D camera to estimate depth and combines an inertial measurement unit (IMU) with powerful and robust landmark recognition and image processing algorithms to localise itself and `close the loop'. : a Android-based cellular device which comes pre-equipped with powerful localisation, depth perception and image processing capabilities. Add added benefit of this platform is its familiar, compact form-factor which will help overcome the hurdle of user-acceptance and usability. 
+The system is based on a Google Tango device, pictured in Figure~\ref{fig:tango} along with the bone-conducting headset that we have been using. A Tango device is an Android-based device available in a cellphone or tablet-form-factor and comes equipped with an RGB-D camera to estimate depth and combines an inertial measurement unit (IMU) with powerful and robust landmark recognition and image processing algorithms to localise itself and `close the loop'. An added benefit of this platform is its familiar, compact form-factor which will help overcome the hurdle of user-acceptance and usability. 
 
-We intend to use multiple feedback modes to provide the VI user with navigation and obstacle avoidance instructions. These modes are spatialised audio, voice prompts and voice cues. However, for this series of experiments, we only employed the spatialised audio mode in order to determine its efficacy. 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.3\textwidth]{figures/tango_headphone.png}
+  \caption{A picture of the Tango device and the bone-conducting headset.}
+  \label{fig:tango}
+\end{figure}
+
+We intend to use multiple feedback modes to provide the VI user with navigation and obstacle avoidance instructions. These modes are spatialised audio, voice prompts and voice cues. However, for this series of experiments, we only employed the spatialised audio mode in order to determine its efficacy. We intent to use the results from the experiments we performed to better understand how the users respond to different settings for the feedback stimuli mentioned earlier, in order to improve and optimise the behaviour of the feedback modes. 
 
 \section{Audio Interface}
 
@@ -110,7 +117,7 @@ For the series of experiments we performed, we only used the audio feedback mode
 
 The audio being generated is a sinusoidal sound wave that is constantly generated and played to the user through bone-conducting headphones. We select a sinusoidal wave due to it being relatively simple to manipulate and analyse. Furthermore, we opted to use an external, bone-conducting headset to play the audio to better simulate the use-case we are designing the system toward where our system will act as a supplementary navigation aid which does not interfere with their other senses; in particular their sense of hearing, which they tend to rely upon heavily [CITE][REVIEW THIS SENTENCE].
 
-[BESPREEK HOEKOM dit dalk beter is om nie kop tracker te gebruik nie en om liewers hand-gedrewe soektog te gebruik]
+The angular orientation of the Tango device is used to generate the audio navigation cues. The argument has been made before in literature [CITE] that using this approach, as opposed to the head-mounted device approach, may be disorientating and unintuitive to a user. However, human beings are capable of externalising themselves and transfer their own frame of reference into an external object's and in our preliminary work, the users have not made any comments on the system being disorientating or confusing and after a brief training and familiarisation phase, has shown that they have no problem using the system and understanding the navigation cues. We would therefore argue that the head-mounted option conceptually offers no clear performance benefit over the hand-held exploration approach. 
 
 \subsection{Pan Description}
 
@@ -196,13 +203,9 @@ The first test that each test subject completed was the tone differentiation tes
   \label{fig:tone-guesses}
 \end{figure}
 
-As one might expect, the frequency for the extreme, larger tone differences is significantly higher than for the smaller differences, where around 80\% of the respondents' correct answers were given at a difference of \SI{16}{\hertz} or more, with the reason being that it is easier to discriminate between two tones with a large tone difference. The number of incorrect guesses in this interval is approximately 50\% of the incorrect answers. For frequencies less than \SI{16}{\hertz}, the number of correct guesses drops down to 80\% of the total correct guesses while the incorrect guesses remains around 50\%. This indicates that our subjects' incorrect answers are fairly consistent across the frequency spectrum, but correct tonal discrimination is far more likely to occur with frequency differences higher than \SI{16}{\hertz}.  
+As one might expect, the frequency for the extreme, larger tone differences is significantly higher than for the smaller differences, where around 80\% of the respondents' correct answers were given at a difference of \SI{16}{\hertz} or more, with the reason being that it is easier to discriminate between two tones with a large tone difference. The number of incorrect guesses in this interval is approximately 50\% of the incorrect answers. For frequencies less than \SI{16}{\hertz}, the number of correct guesses drops down to 20\% of the total correct guesses while the incorrect guesses remains around 50\%. This indicates that our subjects' incorrect answers are fairly consistent across the frequency spectrum, but correct tonal discrimination is far more likely to occur with frequency differences higher than \SI{16}{\hertz}.  
 
 These results are in line with what one might expect, where it becomes increasingly difficult to differentiate between two tones with a small difference for a typical user. However, these results are useful for our research when we begin implementing autonomous adaptation capabilities into our system. 
-
-%From Figure~\ref{fig:tone-guesses} we can see that the number of samples for the larger and easier to differentiate tone differences are quite high, making up [PERCENTAGE] of the data. We also see far fewer samples for the very small \SI{1}{\hertz} difference, which indicates that the subjects had trouble consistently reaching this difficulty and far more in correctly guessing the difference. Furthermore, the proportion of incorrect guesses in relation to correct guesses is higher for the smaller tone differences where it becomes more difficult to differentiate the two tones. 
-
-%These results are in line with one would expect, where a typical user would have difficulty differentiating two tones with a small frequency difference and we can see that the subjects can reliably differentiate two tones with a difference greater than \SI{128}{\hertz} [CHECK, skryf neer \% en maak wetenskaplik].
 
 Figure~\ref{fig:location-guesses} shows the results for the spatial awareness test, where the subjects' had to determine the location of the sound they were played. 
 
@@ -213,35 +216,55 @@ Figure~\ref{fig:location-guesses} shows the results for the spatial awareness te
   \label{fig:location-guesses}
 \end{figure}
 
-In Figure~\ref{fig:location-guesses}, with the relatively low number of red, incorrect guesses, we see that the subjects were far more successful in correctly guessing the location of the sound source. This is further supported by the large number of samples at the \SI{0.03125}{\m}, which was the minimum achievable level for this test, indicating that the subjects reached this level more frequently and consistently. Here we can see that the subjects had little problem localising the left-right diection of a sound source. 
+In Figure~\ref{fig:location-guesses}, with the relatively low number of red, incorrect guesses, we see that the subjects were far more successful in correctly guessing the location of the sound source. This is further supported by the large number of samples at the \SI{0.03125}{\m}, which was the minimum achievable level for this test, indicating that the subjects reached this level more frequently and consistently. Here we can see that the subjects had little problem localising the left-right direction of a sound source. 
 
-Again, these results are in line with what we expected and is supported by literature which indicates that humans are very adept at localising the location of a sound source and this capability was apparent for HRTF-generated pan location. [CITE]
+Again, these results are in line with what we expected and is supported by literature which indicates that humans are very adept at localising the location of a sound source and this ability was apparent for HRTF-generated pan location. [CITE]
+
+Figures~\ref{fig:pan-err-hi} to~\ref{fig:tilt-err-lo} show the results for the target search experiment. These results are given as an angular error between the target pan and tilt, i.e. the difference between the angle required to point to the target from the subject's current position and the subject's current orientation angle. The figures are split up into the pan and tilt dimensions for the `low', `medium' and `high' pitch gain rates discussed earlier. 
+
+The distributions in the pan dimension from Figures~\ref{fig:pan-err-lo} to~\ref{fig:err-pan-hi} are roughly centred around a zero-degree mean error, indicating no directional bias in the pan dimension. Furthermore, the histrograms of the data look roughly normally distributed as well when compared to the reference red line, which is a normal distribution drawn using the mean and standard deviation parameters from the error data. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/pan_err_lo.png}
+  \caption{A plot showing a histogram of the pan errors, along with the corresponding box plots. }
+  \label{fig:pan-err-lo}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/pan_err_med.png}
+  \caption{A plot showing a histogram of the pan errors, along with the corresponding box plots. }
+  \label{fig:pan-err-med}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/pan_err_hi.png}
+  \caption{A plot showing a histogram of the pan errors, along with the corresponding box plots. }
+  \label{fig:location-guesses}
+  \label{fig:pan-err-hi}
+\end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/tilt_err_lo.png}
   \caption{A plot showing a histogram of the tilt errors, along with the corresponding box plots. }
-  \label{fig:location-guesses}
+  \label{fig:tilt-err-lo}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/tilt_err_med.png}
   \caption{A plot showing a histogram of the tilt errors, along with the corresponding box plots. }
-  \label{fig:location-guesses}
+  \label{fig:tilt-err-med}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/tilt_err_hi.png}
   \caption{A plot showing a histogram of the tilt errors, along with the corresponding box plots. }
-  \label{fig:location-guesses}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{figures/pan_err_combo.png}
-  \caption{A plot showing a histogram of the pan errors, along with the corresponding box plots. }
-  \label{fig:location-guesses}
+  \label{fig:tilt-err-hi}
 \end{figure}
 
 \section{Future Work and Conclusion}
