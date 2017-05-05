@@ -64,7 +64,9 @@ What is the contribution of this paper?
 
 The UK's Royal National Institute for the Blind (RNIB), a leading organisation in the area, has identified a number of challenges for the modern blind and visually impaired (henceforth referred to as the VI) person. These include the latter's ability to safely and independently use public transport and navigate in unfamiliar environments~\cite{rnib-objectives}. Recent technological advances in the fields of mobile computing and computer vision have allowed for new and innovative solutions to come to the fore to address these challenges. 
 
-To this end, we propose a mobile device-based navigation system that caters to the needs of the blind and visually impaired that is based on a Google Project Tango device {CITE AAAI PAPER}. A Tango-enabled device comes pre-equipped with powerful image-processing, localisation and depth-perception capabilities and is built on top of a standard Android platform, giving us access to the entire set of input/output options that Android has to offer. The proposed system will use multiple feedback modes to guide a user toward a target destination while providing information on any oncoming obstacles.
+To this end, we propose a mobile device-based navigation system that caters to the needs of the blind and visually impaired that is based on a Google Project Tango device. A Tango-enabled device comes pre-equipped with powerful image-processing, localisation and depth-perception capabilities and is built on top of a standard Android platform, giving us access to the entire set of input/output options that Android has to offer. The proposed system will use multiple feedback modes to guide a user toward a target destination while providing information on any oncoming obstacles.
+
+The contributions to the current body of knowledge are two-fold: these are the first experimental results obtained that provide an indication on how well a tone with varying pitch can convey the elevation angle of a target and it is based on a hand-held mobile device that does all of the processing and uses a nondescript hand-manipulated camera instead of a head-mounted camera sensor. 
 
 In this paper, we discuss in detail how one of these feedback modes are used in our system. We also discuss the experiment we performed to determine how effective this mode is at directing a user to completing a given task, as well as how the mode's parameter values affect a user's performance at completing the aforementioned task. 
 
@@ -92,9 +94,11 @@ In their survey, \citeauthor{khoo2016multimodal}~\cite{khoo2016multimodal} found
 
 On the front of user feedback, work has been done in translating a visual scene into format that would be useful to the VI, with so-called `soundscapes' (e.g. \citeauthor{meijer2010}~\cite{meijer2010} and their `The Voice' system) and virtual audio reality (VAR) systems~\cite{frauenberger2003} reporting favourable results. However, The Voice, while helpful, has a very steep learning curve that has proven to be a significant barrier to entry, and with the VAR system it is not clear how unknown environments, where markers have not yet been encoded, will be handled and described to the user. 
 
-Authors such as \citeauthor{holland2002audiogps}~\cite{holland2002audiogps} have tried using spatial audio to instruct the VI user which direction to go in. Here a sound is played through a set of headphones and the source is spatialised with a head-related transfer function (HRTF) in order to trick the listener into thinking the sound source is located at some arbitrary 3D location. \citeauthor{holland2002audiogps} report promising results with users being able to tell the direction of the sound source on the panning plane with a fair degree of accuracy (they did not test for distance or elevation). However, their `AudioGPS' system was limited by the technology of the time and was rather cumbersome to use. 
+Spatial audio has also been considered to convey the 2D location of a target in space and experimenters have previously determined that people are able to correctly find the location of a sound source within an error range of roughly $\pm$\SI{35}{\degree} in both the pan and tilt dimension~\cite{zwiers2001spatial}. Furthermore, \citeauthor{ashmead1998spatial}~\cite{ashmead1998spatial} determined that the minimum difference in the spatial sound's angle to be able to tell whether it has moved, is approximately \SI{1.7}{\degree}. During these experiments, the sound source (a speaker in this case) was physically maneuvred to provide the subject with a spatialised sound tone. 
 
-To the authors' knowledge, no extensive work or experiments have been done to determine how well users respond to elevation adjustment instructions using a audio tone with varying pitch. 
+Authors such as \citeauthor{holland2002audiogps}~\cite{holland2002audiogps} have tried using simulated spatial audio to instruct the VI user which direction to go in. Here a sound is played through a set of headphones and the source is spatialised with a head-related transfer function (HRTF) in order to trick the listener into thinking the sound source is located at some arbitrary 3D location. \citeauthor{holland2002audiogps} report promising results with users being able to tell the direction of the sound source on the panning plane with a fair degree of accuracy (they did not test for distance or elevation). However, their `AudioGPS' system was limited by the technology of the time and was rather cumbersome to use. 
+
+Experimental results to determine how well users can find a target presented with spatial sound in the elevation and panning dimensions~\cite{katz2011spatial, zwiers2001spatial}, but to the authors' knowledge, no extensive work or experiments have been done with a significant sample size to determine how well users respond to elevation adjustment instructions using an audio tone with \emph{varying pitch}. 
 
 \section{Portable Navigation System}
 
@@ -123,13 +127,13 @@ The angular orientation of the Tango device is used to generate the audio naviga
 
 The pan angle describes the angle which the user needs to rotate the camera vector around the Y-axis, i.e. how far the target is to the left or right of the user. To communicate this to the user, we use a head-related transfer function (HRTF) to add a spatial element to the audio tone that the system plays to the user, making the tone sound to the user like it's coming from the direction of the target. 
 
-The HRTF functionality is implemented using the OpenAL library [CITE] to generate a sinusoidal sound wave based on the relative difference in the user and target's positions. We implement the library as a `black box' where the inputs are positions and it outputs a tone based on the difference in those positions, implying that we don't have access to the internal parameters of the HRTF. We therefore implemented the same HRTF across all of the experiments we conducted.  
+The HRTF functionality is implemented using the OpenAL library~\cite{hiebert2005openal} to generate a sinusoidal sound wave based on the relative difference in the user and target's positions. We implement the library as a `black box' where the inputs are positions and it outputs a tone based on the difference in those positions, implying that we don't have access to the internal parameters of the HRTF. We therefore implemented the same HRTF across all of the experiments we conducted.  
 
-OpenAL is able to generate a 3D spatial tone (pan, tilt and distance). However, we opted to only use it to convey the pan dimension and use other tools to convey the distance and tilt dimensions. We selected this approach partly because HRTFs commonly have difficulty communicating the tilt angle effectively [CITE]. Furthermore, implementing other options for the distance and tilt dimensions grants us finer control over how they are communicated to the user.
+OpenAL is able to generate a 3D spatial tone (pan, tilt and distance). However, we opted to only use it to convey the pan dimension and use other tools to convey the distance and tilt dimensions. We selected this approach partly because HRTFs commonly have difficulty communicating the tilt angle effectively, since its very reliant on the physical structure of the individual's ear and the high-frequency energy of the signal~\cite{roffler1968factors, algazi2001elevation}. Furthermore, implementing other options for the distance and tilt dimensions grants us finer control over how they are communicated to the user.
 
 \subsection{Tilt Description}
 
-To enable the system to communicate the tilt direction of the target, the system adjusts the emitted tone's pitch as a logarithmic function of the elevation angle, $\theta$, between the user's camera vector and the target's position. Here, a high pitch means the target is above the camera vector and the user should look up, whereas a low pitch means the target is below the camera vector and the user should look down. This high/low association scheme is selected, because humans naturally tend to associate high-pitched sounds with higher objects and lower-pitched noises with lower objects [CITE]. We also opt for a logarithmic, octave-based gain function for the pitch because it sounds more natural to the human ear [CITE].
+To enable the system to communicate the tilt direction of the target, the system adjusts the emitted tone's pitch as a logarithmic function of the elevation angle, $\theta$, between the user's camera vector and the target's position. Here, a high pitch means the target is above the camera vector and the user should look up, whereas a low pitch means the target is below the camera vector and the user should look down. This high/low association scheme is selected, because humans naturally tend to associate high-pitched sounds with higher objects and lower-pitched noises with lower objects~\cite{pratt1930spatial}. We also opt for a logarithmic, octave-based gain function for the pitch, since an increase in octave provides a distinct perceptible change while keeping the tone roughly similar~\cite{shepard1964circularity}.
 
 We wish to determine what effect the gradient of the pitch gain function has on a user's performance; that is to say, does an increased rate of change in the pitch as a function of the elevation angle lead to an increased target acquisition rate, for example. For this we select three different pitch gain gradients, so-called low, median and high gain presets. To find these gradients, we set the maximum and minimum limits for the pitch and the elevation angles. Furthermore, for the sake of consistency, each gradient is set to pass through the same pitch value at the \SI{0}{\radian} elevation angle.   
 
@@ -158,7 +162,7 @@ The hearing characteristics we wished to determine were the subjects' spatial aw
 
 \subsection{Test Procedure}
 
-For the experiments we used 40 blindfolded volunteers and had them perform a series of experiments using our system and a pair of bone conducting headphones. The subjects were recruited on a volunteer-basis and consisted of a diverse group of undergraduate students with ages ranging between [WHAT ARE THE AGES?], with [WHAT ARE THE GENDER NUMBERS?]. The subjects also reported having no significant sight or hearing issues or any other major disability. 
+For the experiments we used 40 sighted and blindfolded volunteers and had them perform a series of experiments using our system and a pair of bone conducting headphones. The subjects were recruited on a volunteer-basis and consisted of a diverse group of undergraduate students with ages ranging between [WHAT ARE THE AGES?], with [WHAT ARE THE GENDER NUMBERS?]. The subjects also reported having no significant sight or hearing issues or any other major disability. 
 
 The 40 subjects were asked to participate in 4 experiments, each of which is discussed here.
 
@@ -194,6 +198,8 @@ For this experiment, the distance between the candidate and the target is not co
 
 \section{Results}
 
+\subsection{Preliminary Test}
+
 The first test that each test subject completed was the tone differentiation test. The results recorded for this test is shown in Figure~\ref{fig:tone-guesses} where a bar plot is used to show the frequency of correct guesses versus the incorrect guesses for each tone difference level. 
 
 \begin{figure}
@@ -220,9 +226,9 @@ In Figure~\ref{fig:location-guesses}, with the relatively low number of red, inc
 
 Again, these results are in line with what we expected and is supported by literature which indicates that humans are very adept at localising the location of a sound source and this ability was apparent for HRTF-generated pan location. [CITE]
 
-Figures~\ref{fig:pan-err-hi} to~\ref{fig:tilt-err-lo} show the results for the target search experiment. These results are given as an angular error between the target pan and tilt, i.e. the difference between the angle required to point to the target from the subject's current position and the subject's current orientation angle. The figures are split up into the pan and tilt dimensions for the `low', `medium' and `high' pitch gain rates discussed earlier. 
+\subsection{Panning Dimension Results}
 
-The distributions in the pan dimension from Figures~\ref{fig:pan-err-lo} to~\ref{fig:err-pan-hi} are roughly centred around a zero-degree mean error, indicating no directional bias in the pan dimension. Furthermore, the histograms of the data look roughly normally distributed as well when compared to the reference red line, which is a normal distribution drawn using the mean and standard deviation parameters from the error data. 
+Figures~\ref{fig:pan-err-lo} to~\ref{fig:pan-err-hi} show the results for the errors in the pan dimensions from the target search experiment. These results are given as an angular error between the target's pan angle, i.e. the difference between the angle required to point to the target from the subject's current position, and the subject's current orientation angle. The figures are split up into the `low', `medium' and `high' pitch gain rates discussed earlier. 
 
 \begin{figure}
   \centering
@@ -245,6 +251,15 @@ The distributions in the pan dimension from Figures~\ref{fig:pan-err-lo} to~\ref
   \label{fig:location-guesses}
   \label{fig:pan-err-hi}
 \end{figure}
+
+The distributions in the pan dimension from Figures~\ref{fig:pan-err-lo} to~\ref{fig:pan-err-hi} are roughly centred around a zero-degree mean error, indicating no directional bias in the pan dimension. Furthermore, the histograms of the data look roughly normally distributed as well when compared to the reference red line, which is a normal distribution drawn using the mean and standard deviation parameters from the error data. 
+
+Performing an ANOVA test on the pan error data between the pitch gradient settings reveals a $P$-level of 0.0005638. This is significantly lower than the 0.005 that is commonly used in literature [CITE?] and we can therefore reject the null-hypothsis that the three datasets have the same median and can conclude that the differences between them are statistically significant. This is an interesting result, since the adjustments made between the three datasets do not influence the behaviour of the panning instructions. Based on these plots, the `medium' pitch gradient setting produces the smallest standard deviation, while the average angular error between the datasets remains fairly similar. 
+
+% Maak Fitts law grafiek wat lineere verhouding toon. 
+% Time to target vir die verskillende data
+
+\subsection{Tilt Dimension Results}
 
 \begin{figure}
   \centering
