@@ -59,18 +59,20 @@
 
 \section{Introduction}
 
-What is the problem? reference AAAI paper
-What is the contribution of this paper?
-
 The UK's Royal National Institute for the Blind (RNIB), a leading organisation in the area, has identified a number of challenges for the modern blind and visually impaired (henceforth referred to as the VI) person. These include the latter's ability to safely and independently use public transport and navigate in unfamiliar environments~\cite{rnib-objectives}. Recent technological advances in the fields of mobile computing and computer vision have allowed for new and innovative solutions to come to the fore to address these challenges. 
 
-To this end, we propose a mobile device-based navigation system that caters to the needs of the blind and visually impaired that is based on a Google Project Tango device. A Tango-enabled device comes pre-equipped with powerful image-processing, localisation and depth-perception capabilities and is built on top of a standard Android platform, giving us access to the entire set of input/output options that Android has to offer. The proposed system will use multiple feedback modes to guide a user toward a target destination while providing information on any oncoming obstacles.
+To this end, we propose a mobile device-based navigation system that caters to the needs of the blind and VI that is based on a Google Project Tango device. A Tango-enabled device comes pre-equipped with powerful image-processing, localisation and depth-perception capabilities and is built on top of a standard Android platform, providing access to the entire set of input/output options that Android has to offer. The proposed system will use multiple feedback modes to guide a user toward a target destination while providing information on any oncoming obstacles.
 
-The contributions to the current body of knowledge are two-fold: these are the first experimental results obtained that provide an indication on how well a tone with varying pitch can convey the elevation angle of a target and it is based on a hand-held mobile device that does all of the processing and uses a nondescript hand-manipulated camera instead of a head-mounted camera sensor. 
+In this paper, we discuss in detail how one of these feedback modes are used in our system. We also discuss the experiments we performed to determine how effective this mode is at directing a user to completing a given task, as well as how its parameter values affect a user's performance at completing the aforementioned task. 
 
-In this paper, we discuss in detail how one of these feedback modes are used in our system. We also discuss the experiment we performed to determine how effective this mode is at directing a user to completing a given task, as well as how the mode's parameter values affect a user's performance at completing the aforementioned task. 
+The contributions to the current body of knowledge are two-fold: 
 
-The remainder of this paper is organised as follows: HOW IS PAPER ORGANISED?
+\begin{enumerate}
+  \item these are the first experimental results obtained with a significant sample size that provide an indication on how well a tone with varying pitch can convey the elevation angle of a target and 
+  \item the system is based on a hand-held mobile device that does all of the processing on-board and uses a nondescript, hand-manipulated camera instead of a head-mounted camera sensor 
+\end{enumerate}
+
+The remainder of this paper is organised as follows: work previously performed that is relevant to this work is presented and discussed, followed by a description of the navigation system and its audio feedback interface. The experiments we performed and the results it generated are then discussed. A brief summary of the current work and an overview of the future work is then given in conclusion. 
 
 \section{Previous Work}
 
@@ -84,7 +86,7 @@ One approach that has been investigated is to outfit the existing white walking 
 
 Computer vision-based systems provide a good compromise between usability, cost and accuracy and has has been the focus of much research in the recent past. One popular solution is to use an RGB-D depth sensing camera, which are becoming increasingly more accurate and cheaper, to build a 3D image map which will allow a user to safely traverse through~\cite{lee2015, rodriguez2012obstacle}. However, these systems have not yet been thoroughly tested with VI people in a real environment. Another approach is to use object recognition techniques to detect various objects and landmarks, such as doors, staircases, etc.~\cite{tian2013b}, and communicate their relative location to the user. Furthermore, though not strictly useful for navigation but nice to have, are other assistive functionalities, such as face recognition and currency reading, that can also be added to enhance the VI user's experience and add more usability to the system~\cite{chessa2016}.
 
-It should also be noted that a large amount of the work discussed here uses a head-mounted tracking unit or camera to track where the user is looking and generate navigation instructions based on the user's gaze direction. While this approach is quite simple and keeps the user's hands free to perform other actions, it is quite cumbersome and in the way and the ideal system would require the user to rely on as few apparatus and devices as possible. 
+It should also be noted that a large amount of the work discussed here uses a head-mounted tracking unit or camera to track where the user is looking and generate navigation instructions based on the user's gaze direction. While this approach is quite simple and keeps the user's hands free to perform other actions, it is quite cumbersome and in the way and the ideal system would require the user to rely on as few apparatus and devices as possible. We therefore propose a hand-held solution that makes use of the impressive amount of computing power available on modern smartphones and tablets. 
 
 \subsection{Interfacing}
 
@@ -94,7 +96,7 @@ In their survey, \citeauthor{khoo2016multimodal}~\cite{khoo2016multimodal} found
 
 On the front of user feedback, work has been done in translating a visual scene into format that would be useful to the VI, with so-called `soundscapes' (e.g. \citeauthor{meijer2010}~\cite{meijer2010} and their `The Voice' system) and virtual audio reality (VAR) systems~\cite{frauenberger2003} reporting favourable results. However, The Voice, while helpful, has a very steep learning curve that has proven to be a significant barrier to entry, and with the VAR system it is not clear how unknown environments, where markers have not yet been encoded, will be handled and described to the user. 
 
-Spatial audio has also been considered to convey the 2D location of a target in space and experimenters have previously determined that people are able to correctly find the location of a sound source within an error range of roughly $\pm$\SI{35}{\degree} in both the pan and tilt dimension~\cite{zwiers2001spatial}. Furthermore, \citeauthor{ashmead1998spatial}~\cite{ashmead1998spatial} determined that the minimum difference in the spatial sound's angle to be able to tell whether it has moved, is approximately \SI{1.7}{\degree}. During these experiments, the sound source (a speaker in this case) was physically maneuvred to provide the subject with a spatialised sound tone. 
+Spatial audio has also been considered to convey the 2D location of a target in space and experimenters have previously determined that people are able to correctly find the location of a sound source within an error range of roughly $\pm$\SI{35}{\degree} in both the pan and tilt dimension~\cite{zwiers2001spatial}. Furthermore, \citeauthor{ashmead1998spatial}~\cite{ashmead1998spatial} determined that the minimum difference in the spatial sound's angle to be able to tell whether it has moved, is approximately \SI{1.7}{\degree}. During these experiments, the sound source (a speaker in this case) was physically manoeuvred to provide the subject with a spatialised sound tone. 
 
 Authors such as \citeauthor{holland2002audiogps}~\cite{holland2002audiogps} have tried using simulated spatial audio to instruct the VI user which direction to go in. Here a sound is played through a set of headphones and the source is spatialised with a head-related transfer function (HRTF) in order to trick the listener into thinking the sound source is located at some arbitrary 3D location. \citeauthor{holland2002audiogps} report promising results with users being able to tell the direction of the sound source on the panning plane with a fair degree of accuracy (they did not test for distance or elevation). However, their `AudioGPS' system was limited by the technology of the time and was rather cumbersome to use. 
 
@@ -102,9 +104,11 @@ Experimental results to determine how well users can find a target presented wit
 
 \section{Portable Navigation System}
 
-The system we intend to ultimately deliver is a portable navigation device that caters to the needs of the blind by using a combination of different feedback modes to facilitate two-way communication between the user and the device. We use multiple modes to overcome the bandwidth limitation that is introduced when visual data is translated into audio cues and voice commands, for example. 
+The system we intend to ultimately deliver is a portable navigation device that caters to the needs of the blind by using a combination of different feedback modes to facilitate two-way communication between the user and the device. A large amount of data needs to be translated from a visual form into a format that is useful to the VI. We therefore use a combination of voice, audio and vibration cues to translate the visual navigation data as effectively as possible and overcome the bandwidth limitation that is inherent to the human ear. 
 
-The system is based on a Google Tango device, pictured in Figure~\ref{fig:tango} along with the bone-conducting headset that we have been using. A Tango device is an Android-based device available in a cellphone or tablet-form-factor and comes equipped with an RGB-D camera to estimate depth and combines an inertial measurement unit (IMU) with powerful and robust landmark recognition and image processing algorithms to localise itself and `close the loop'. An added benefit of this platform is its familiar, compact form-factor which will help overcome the hurdle of user-acceptance and usability. 
+The system is based on a Google Tango device, pictured in Figure~\ref{fig:tango} along with the bone-conducting headset that we have been using. A Tango device is an Android-based device available in a cellphone or tablet form-factor and comes equipped with an RGB-D camera to estimate depth and combines an inertial measurement unit (IMU) with powerful and robust landmark recognition and image processing algorithms to localise itself and `close the loop'. An added benefit of this platform is its familiar, compact form-factor which will help overcome the hurdle of user-acceptance and usability. Furthermore, this approach externalises the user's frame of reference for navigation from one relative to their head and gaze direction, commonly used by the head-mounted devices discussed in literature, to another reference frame relative to the hand holding the device and its orientation, demonstrated in Figure [SIT FIGUUR IN]. 
+
+We use a set of bone-conducting earphones that are placed externally on the user's head, with the reason being that the system should not interfere with a user's normal hearing function. This becomes particularly important when your target user-base has significant visually impairments. 
 
 \begin{figure}
   \centering
@@ -113,13 +117,24 @@ The system is based on a Google Tango device, pictured in Figure~\ref{fig:tango}
   \label{fig:tango}
 \end{figure}
 
-We intend to use multiple feedback modes to provide the VI user with navigation and obstacle avoidance instructions. These modes are spatialised audio, voice prompts and voice cues. However, for this series of experiments, we only employed the spatialised audio mode in order to determine its efficacy. We intent to use the results from the experiments we performed to better understand how the users respond to different settings for the feedback stimuli mentioned earlier, in order to improve and optimise the behaviour of the feedback modes. 
+We intend to use multiple feedback modes to provide the VI user with navigation and obstacle avoidance instructions. These modes are spatialised audio, voice prompts and vibration cues. However, for this series of experiments, we only employed the spatialised audio mode in order to determine its effectiveness in conveying elevation angle to a user. We plan to use the results from the experiments we performed to better understand how the users respond to different settings for the feedback stimuli mentioned earlier, in order to improve and optimise the behaviour of the feedback modes. 
+
+The next phase of the project is to add a co-adaptive module to the feedback interface, the goal of which is to refine the parameters of the feedback interface to better match the individual user's navigation habits and capability thereby increasing navigation performance and user satisfaction. A diagram of the entire system pipeline is shown in Figure~\ref{fig:pipeline}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/pipeline.pdf}
+  \caption{A diagram of the individual system components and their communication pipelines. }
+  \label{fig:pipeline}
+\end{figure}
 
 \section{Audio Interface}
 
-For the series of experiments we performed, we only used the audio feedback mode to interface with the user. This audio component is responsible for conveying the 3D position of a target relative to the target in terms of pan and tilt angles, as well as distance to the target, using a scheme similar to a polar coordinate system. To simplify the experiment process and better isolate the different variables, we only enabled the pan and tilt parts of the interface, leaving the distance out to be experimented with in the future.  
+For the series of experiments we performed, we only used the audio feedback mode to interface with the user. Here, the audio component is responsible for conveying the 2D position of a target relative to the target in terms of pan and tilt angles. 
 
-The audio being generated is a sinusoidal sound wave that is constantly generated and played to the user through bone-conducting headphones. We select a sinusoidal wave due to it being relatively simple to manipulate and analyse. Furthermore, we opted to use an external, bone-conducting headset to play the audio to better simulate the use-case we are designing the system toward where our system will act as a supplementary navigation aid which does not interfere with their other senses; in particular their sense of hearing, which they tend to rely upon heavily [CITE][REVIEW THIS SENTENCE].
+The audio being generated is a sinusoidal sound wave that is constantly generated and played to the user through bone-conducting headphones. We select a sinusoidal wave due to it being relatively simple to manipulate and analyse. Furthermore, we opted to use an external, bone-conducting headset to play the audio to better simulate the use-case we are designing the system toward where our system will act as a supplementary navigation aid which does not interfere with their other senses; in particular their sense of hearing, which the VI tend to rely upon heavily. 
+
+The audio is spatialised using the head-related transfer function (HRTF) provided by the OpenAL sound library. However, the audio is only spatialised in the pan dimension, while the tilt angle is conveyed by varying the pitch of the audio tone. We use this approach because we use an external set of bone-conducting headphones that play the sound through the user's cheekbones instead of their outer ears, bypassing the pennae of the ears which provide humans their ability to localise an elevated sound source~\cite{roffler1968factors, algazi2001elevation}, making it necessary to convey the elevation using another method. 
 
 The angular orientation of the Tango device is used to generate the audio navigation cues. The argument has been made before in literature [CITE] that using this approach, as opposed to the head-mounted device approach, may be disorientating and unintuitive to a user. However, human beings are capable of externalising themselves and transfer their own frame of reference into an external object's and in our preliminary work, the users have not made any comments on the system being disorientating or confusing and after a brief training and familiarisation phase, has shown that they have no problem using the system and understanding the navigation cues. We would therefore argue that the head-mounted option conceptually offers no clear performance benefit over the hand-held exploration approach. 
 
@@ -129,7 +144,9 @@ The pan angle describes the angle which the user needs to rotate the camera vect
 
 The HRTF functionality is implemented using the OpenAL library~\cite{hiebert2005openal} to generate a sinusoidal sound wave based on the relative difference in the user and target's positions. We implement the library as a `black box' where the inputs are positions and it outputs a tone based on the difference in those positions, implying that we don't have access to the internal parameters of the HRTF. We therefore implemented the same HRTF across all of the experiments we conducted.  
 
-OpenAL is able to generate a 3D spatial tone (pan, tilt and distance). However, we opted to only use it to convey the pan dimension and use other tools to convey the distance and tilt dimensions. We selected this approach partly because HRTFs commonly have difficulty communicating the tilt angle effectively, since its very reliant on the physical structure of the individual's ear and the high-frequency energy of the signal~\cite{roffler1968factors, algazi2001elevation}. Furthermore, implementing other options for the distance and tilt dimensions grants us finer control over how they are communicated to the user.
+%OpenAL is able to generate a 3D spatial tone (pan, tilt and distance). However, we opted to only use it to convey the pan dimension and use other tools to convey the distance and tilt dimensions. We selected this approach partly because HRTFs commonly have difficulty communicating the tilt angle effectively, since its very reliant on the physical structure of the individual's ear and the high-frequency energy of the signal~\cite{roffler1968factors, algazi2001elevation}. 
+
+%Furthermore, implementing other options for the distance and tilt dimensions grants us finer control over how they are communicated to the user.
 
 \subsection{Tilt Description}
 
@@ -148,43 +165,39 @@ After practical tests with the Tango and the headphones, we set the neutral, on-
   \label{fig:pitch-preset-plot}
 \end{figure}
 
-\section{Tests Performed}
+\section{Experiments}
 
-To determine how effective the individual feedback modes of our HMI is at directing a user to perform a given task, we performed a set of experiments with blindfolded users using only a limited set of the feedback modes. The reason for only experimenting with one or two modes together is to simplify the experiment procedure and incrementally build up our knowledge of the interactions between the user and the feedback mode so that we can eventually integrate all of the feedback modes into a single implementation and perform an optimal set of experiments that will provide us with all of the important data that we require. 
+To determine how effective the individual feedback modes of our HMI is at directing a user to perform a given task, we performed a set of experiments with blindfolded users using a limited set of the feedback modes. The reason for only experimenting with one or two modes together is to simplify the experiment procedure and incrementally build up our knowledge of the interactions between the user and the feedback mode so that we can eventually integrate all of the feedback modes into a single implementation and perform an optimal set of experiments that will provide us with all of the important data that we require. 
 
 In this case, we experimented with the spatialised sound feedback mode; that is to say we determined how effective a spatial tone, with varying pitch, is at directing a user to pan and tilt a camera to find a target. Furthermore, we also carried out a set of pre-screening experiments to determine each subject's hearing characteristics. The following sections will discuss all of these experiments and their objectives in detail. 
 
-\subsection{Test Objectives}
+\subsection{Experiment Objectives}
 
 Every subject was asked to participate in 4 different experiments: the first three were pre-screening experiments to evaluate the subjects' hearing characteristics and the last to determine how effective our HMI's spatial sound is at controlling a subject's pan and tilt. Furthermore, we wish to determine how the different values of this spatial sound affects a subject's performance. 
 
 The hearing characteristics we wished to determine were the subjects' spatial awareness, tone limits and tone discrimination capability. For the spatial sound experiment we wish to determine how quickly each subject can find their target's, what each subject's target search strategy is as well as how the different feedback parameter values affect these performances. 
 
-\subsection{Test Procedure}
+\subsection{Experimental Procedure}
 
 For the experiments we used 40 sighted and blindfolded volunteers and had them perform a series of experiments using our system and a pair of bone conducting headphones. The subjects were recruited on a volunteer-basis and consisted of a diverse group of undergraduate students with ages ranging between [WHAT ARE THE AGES?], with [WHAT ARE THE GENDER NUMBERS?]. The subjects also reported having no significant sight or hearing issues or any other major disability. 
 
-The 40 subjects were asked to participate in 4 experiments, each of which is discussed here.
+The 40 subjects were asked to participate in 4 experiments, each of which is discussed here. The first 3 experiments were performed to determine each subject's hearing characteristics and capabilities to provide some context to the results generated during the 4th and final target-search experiment. 
 
-\subsubsection{Spatial Awareness Test}
+\subsubsection{Subject Characterisation}\hfill
 
-In this experiment, we determine a subject's ability to tell the direction a sound is coming from. To do this, we play a 512Hz sinusoidal tone to the candidate through the headphones that comes from either the left or right of the subject. The subject must then select whether the sound source is to the left or right. The sound source location is simulated using a head-related transfer function (HRTF). The longer this experiment is run, the source moves closer to the centre of the subject making it more difficult to localise the sound source. 
+\textbf{Spatial Awareness Experiment}: In this experiment, we determine a subject's ability to tell the direction a sound is coming from. To do this, we play a 512Hz sinusoidal tone to the candidate through the headphones that comes from either the left or right of the subject. The subject must then select whether the sound source is to the left or right. The sound source location is simulated using a head-related transfer function (HRTF). The longer this experiment is run, the source moves closer to the centre of the subject making it more difficult to localise the sound source. 
 
 For this progressive increase in difficulty, a 2-up, 1-down step process is used, meaning that for every 2 correct answers, the distance to the centre halves, making the process harder. Conversely, it becomes easier for each incorrect answer by doubling the sound source's distance from the centre. We also select to use 2 different step sequences, one starting at a large distance (\SI{2}{\m})[CHECK] from the user and the other at a close distance (\SI{0.125}{\m}) [CHECK], giving us an `easy' and `hard' step respectively. The terminating condition for the experiment is when the 2 step sequences are within 2 step ranges of each other for 3 consecutive guesses. This will give us a distance band within which the candidate is capable of localising the sound source. Each candidate will performed this experiment three times. 
 
-\subsubsection{Pitch Discrimination Test}
-
-For this experiment , we determine a subject's ability to tell tones apart, i.e. how well can they tell if a tone is high or low pitched? Here we play 2 tones to the subjects, one after the other, with one tone being higher or lower-pitched than the other. The subject's were asked to select whether the second tone was higher or lower-pitched than the first tone.
+\textbf{Pitch Discrimination Experiment}: For this experiment , we determine a subject's ability to tell tones apart, i.e. how well can they tell if a tone is high or low pitched? Here we play 2 tones to the subjects, one after the other, with one tone being higher or lower-pitched than the other. The subject's were asked to select whether the second tone was higher or lower-pitched than the first tone.
 
 One tone was randomly generated by the app and the second tone was generated by adding or subtracting the difference from the first tone. This difference is based on an exponential function, $f(n) = 2^2$, where $n$ was increased or decreased to adjust the differentiation difficulty. 
 
 As with the spatial experiment, a 2-up, 1-down step process is used: for every 2 consecutive correct answers, the pitch difference between the two tones will be halved, increasing the difficulty, and the difference is doubled, i.e $n$ is incremented by 1, for every incorrect answer, making the tones easier to differentiate. Two step sequences are again used here, one starting with a large pitch difference (\SI{1024}{\hertz})[CHECK] between the tones and the other with a small difference (\SI{2}{\hertz}) [CHECK]. The termination condition is when the two step sequences are within one octave of each other for 3 consecutive answers. Each subject performed this experiment twice. 
 
-\subsubsection{Tone Limit Test}
+\textbf{Tone Limit Experiment}: We determined the candidates' tone limits as a final experiment before they took part in the  main, target-finding experiment. We did this by playing a single tone that increases in pitch as time progresses. The candidate was then asked to click a button as soon as he/she started hearing a tone and to click the button again when the tone became inaudible. The subject was then asked to repeat the process 6 times, but the tone direction was reversed after each run, meaning that the tone either started high and went low or started low and went high. 
 
-We determined the candidates' tone limits as a final experiment before they took part in the  main, target-finding experiment. We did this by playing a single tone that increases in pitch as time progresses. The candidate was then asked to click a button as soon as he/she started hearing a tone and to click the button again when the tone became inaudible. The subject was then asked to repeat the process 6 times, but the tone direction was reversed after each run, meaning that the tone either started high and went low or started low and went high. 
-
-\subsubsection{Target Search Test}
+\subsubsection{Target Search Experiment}\hfill
 
 The final experiment is the main one and will answer the question we are most interested in: how well does a spatial tone direct a user to look in a specific direction, and how do the parameters of this tone affect the user's performance in this task? 
 
@@ -198,9 +211,9 @@ For this experiment, the distance between the candidate and the target is not co
 
 \section{Results}
 
-\subsection{Preliminary Test}
+\subsection{Preliminary Experiment}
 
-The first test that each test subject completed was the tone differentiation test. The results recorded for this test is shown in Figure~\ref{fig:tone-guesses} where a bar plot is used to show the frequency of correct guesses versus the incorrect guesses for each tone difference level. 
+The first experiment that each test subject participated in was the tone differentiation experiment. The results recorded during this experiment is shown in Figure~\ref{fig:tone-guesses} where a bar plot is used to show the frequency of correct guesses versus the incorrect guesses for each tone difference level. 
 
 \begin{figure}
   \centering
@@ -213,7 +226,7 @@ As one might expect, the frequency for the extreme, larger tone differences is s
 
 These results are in line with what one might expect, where it becomes increasingly difficult to differentiate between two tones with a small difference for a typical user. However, these results are useful for our research when we begin implementing autonomous adaptation capabilities into our system. 
 
-Figure~\ref{fig:location-guesses} shows the results for the spatial awareness test, where the subjects' had to determine the location of the sound they were played. 
+Figure~\ref{fig:location-guesses} shows the results for the spatial awareness experiment, where the subjects' had to determine the location of the sound they were played. 
 
 \begin{figure}
   \centering
@@ -222,7 +235,7 @@ Figure~\ref{fig:location-guesses} shows the results for the spatial awareness te
   \label{fig:location-guesses}
 \end{figure}
 
-In Figure~\ref{fig:location-guesses}, with the relatively low number of red, incorrect guesses, we see that the subjects were far more successful in correctly guessing the location of the sound source. This is further supported by the large number of samples at the \SI{0.03125}{\m}, which was the minimum achievable level for this test, indicating that the subjects reached this level more frequently and consistently. Here we can see that the subjects had little problem localising the left-right direction of a sound source. 
+In Figure~\ref{fig:location-guesses}, with the relatively low number of red, incorrect guesses, we see that the subjects were far more successful in correctly guessing the location of the sound source. This is further supported by the large number of samples at the \SI{0.03125}{\m}, which was the minimum achievable level for this experiment, indicating that the subjects reached this level more frequently and consistently. Here we can see that the subjects had little problem localising the left-right direction of a sound source. 
 
 Again, these results are in line with what we expected and is supported by literature which indicates that humans are very adept at localising the location of a sound source and this ability was apparent for HRTF-generated pan location. [CITE]
 
@@ -283,6 +296,8 @@ Performing an ANOVA test on the pan error data between the pitch gradient settin
 \end{figure}
 
 \section{Future Work and Conclusion}
+
+\section{Acknowledgements}
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{icmi17}
