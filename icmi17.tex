@@ -266,7 +266,7 @@ Figures~\ref{fig:tilt-err-lo} to~\ref{fig:tilt-err-hi} shows the results recorde
   \label{fig:tilt-err-hi}
 \end{figure}
 
-We can see from the plots that there is a significant linear correlation between the user's guesses and the actual locations of the targets, indicating that the varying pitch is working as expected and the users in general are interpreting the cues correctly. This is supported by the Pearson correlation coefficient of the datasets that equate to 0.34, 0.44 and 0.48 for the lo, med and hi configurations respectively, each with a statistical significance lower than 5\%, indicating that it is reasonable to trust the correlation scores. The Spearman correlation scores are 0.40, 0.52, 0.55 with a significance level still below 5\%. 
+We can see from the plots that there is a significant linear correlation between the user's guesses and the actual locations of the targets, indicating that the varying pitch is working as expected and the users in general are interpreting the cues correctly. This is supported by the Pearson correlation coefficient of the datasets that equate to 0.34, 0.44 and 0.48 for the lo, med and hi configurations respectively, each with a statistical significance lower than 5\%, indicating that it is reasonable to trust the correlation scores. The Spearman correlation scores are 0.40, 0.52, 0.55 for each respective dataset with a significance level still below 5\%. 
 
 The average errors of the datasets are closer to each other, with the lo gradient giving the largest absolute error at \SI{22.6}{\degree} and the med and hi a similar absolute error of \SI{18.4}{\degree} and \SI{19.3}{\degree} respectively. This is in line with the correlation scores with the lo gradient giving a significantly worse result than the med and hi gradients and the hi gradient giving the best results overall with its high correlation score and relatively low absolute angular error. 
 
@@ -276,7 +276,7 @@ These results highlight a clear and significant difference between the three dif
 
 \subsubsection{Panning Dimension Results}
 
-%Figures~\ref{fig:pan-err-lo} to~\ref{fig:pan-err-hi} show the results for the errors in the pan dimensions from the target search experiment. These results are given as an angular error between the target's pan angle, i.e. the difference between the angle required to point to the target from the subject's current position, and the subject's current orientation angle. The figures are split up into the `low', `medium' and `high' pitch gain rates discussed earlier. 
+The results from the target search experiment in the pan dimension are given in Figures~\ref{fig:pan-err-lo} to~\ref{fig:pan-err-hi}, where a scatter plot of the subjects' guesses vs. the target's actual location are given along with a box-plot of the angular errors between the guesses and actual locations of the targets. A plot for each of the `lo', `med' and `hi' configurations are given. The Pearson correlation and average errors for each dataset are given with the corresponding plot. 
 
 \begin{figure}
   \centering
@@ -296,23 +296,72 @@ These results highlight a clear and significant difference between the three dif
   \centering
   \includegraphics[width=0.5\textwidth]{figures/pan_err_hi.png}
   \caption{A plot showing a histogram of the pan errors, along with the corresponding box plots. }
-  \label{fig:location-guesses}
   \label{fig:pan-err-hi}
 \end{figure}
 
-%The distributions in the pan dimension from Figures~\ref{fig:pan-err-lo} to~\ref{fig:pan-err-hi} are roughly centred around a zero-degree mean error, indicating no directional bias in the pan dimension. Furthermore, the histograms of the data look roughly normally distributed as well when compared to the reference red line, which is a normal distribution drawn using the mean and standard deviation parameters from the error data. 
+The scatter plots display evidence of a linear correlation between the subjects' guesses and the targets' true locations. This is confirmed by both the Pearson and Spearman correlation scores of above 0.7 for all three datasets, with the med configuration displaying the best result at 0.75 for the Pearson score and 0.8 for the Pearson, with a statistical level of significance well below 5\%. 
 
-%Performing an ANOVA test on the pan error data between the pitch gradient settings reveals a $P$-level of 0.0005638. This is significantly lower than the 0.005 that is commonly used in literature [CITE?] and we can therefore reject the null-hypothsis that the three datasets have the same median and can conclude that the differences between them are statistically significant. This is an interesting result, since the adjustments made between the three datasets do not influence the behaviour of the panning instructions. Based on these plots, the `medium' pitch gradient setting produces the smallest standard deviation, while the average angular error between the datasets remains fairly similar. 
+The angular errors are roughly normally distributed around zero with comparable average errors and standard deviations, with the med configuration again producing the best results with the smallest average error and standard deviation. 
 
-% Maak Fitts law grafiek wat lineere verhouding toon. 
-% Time to target vir die verskillende data
+Based on previous research results[CITE], these results were somewhat expected. However, they do confirm that the target search capability of a subject in the pan dimension is fairly robust to the changing pitch we used to convey the target's elevation error which is a useful result going forward. The smallest angular error and highest correlation was achieved when the med gain gradient for the pitch was used. However, the difference between these values here is not significant enough to conclude that the varying pitch has a significant effect on the accuracy of the target search in the pan dimension. 
 
 \subsubsection{Time to Target}
- Ooreenstemming met Fitts se Wet?? 
+
+The performance between the three difference pitch gradient configurations can be compared using different metrics. The previous sections established the accuracy difference between the configurations. Here we compare the performance in terms of the time it took each subject to find a target. 
+
+For this analysis we opt to use Fitts's Law, which states that there is a logarithmic relation between the time it took to find a target and the difficulty of finding the target, i.e. its difficulty index. It also gives us a so-called `index of performance' that we can use as a metric to compare the results between the three configurations. Fitts's Law is given in Equation~\ref{eq:fitts-base}. 
+
+
+\begin{equation}
+  \label{eq:fitts-base}
+  t = a + b\log_2\left(\frac{d}{w} + 1\right)
+\end{equation}
+
+Here, $t$ is the time it takes to find the target and $d$ is the distance between the two subsequent targets' centre points, while $w$ is the width of the target and $a$ and $b$ are constants determined through regression.
+
+Fitts's Law uses the target's width as a parameter in its index of difficulty. However, our targets do not have a width, which means we have to use an effective width, $w_e$, as a parameter instead. Using this parameter was originally proposed by \citeauthor{mackenzie1992fitts}~\cite{mackenzie1992fitts} in order to provide more accurate results when the process contains noise and uncertainties. In our case, the noise is introduced by the subjects not selecting the target at a constant distance from the target's centre. 
+
+$w_e$ is given by 
+
+\[
+  w_e = \sqrt{2\pi e}\sigma = 4.133\sigma
+\]
+
+where $\sigma$ is the standard deviation in the error data, taken as the difference in Euclidian distance between the subjects' target selections and the targets' actual positions. This results in the modified form of Fitts's Law, given in Equation~\ref{eq:fitts-simple}.
+
+\begin{equation}
+  \label{eq:fitts-simple}
+  t = a + b\log_2\left(\frac{d}{4.133\sigma} + 1\right)
+\end{equation}
+
+We used the relation from Equation~\ref{eq:fitts-simple} and fitted a line through the distance-time data we gathered. The resulting plots are given in Figures~\ref{fig:fitts-lo} to~\ref{fig:fitts-hi}. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/fitts_lo.png}
+  \caption{A plot showing the data for the time it took for the user to point the Tango to where they think the next target was in the `lo' configuration}
+  \label{fig:fitts-lo}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/fitts_med.png}
+  \caption{A plot showing the data for the time it took for the user to point the Tango to where they think the next target was in the `med' configuration}
+  \label{fig:fitts-lo}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/fitts_hi.png}
+  \caption{A plot showing the data for the time it took for the user to point the Tango to where they think the next target was in the `hi' configuration}
+  \label{fig:fitts-lo}
+\end{figure}
 
 \section{Future Work and Conclusion}
 
 \section{Acknowledgements}
+
+We would like to thank Prof. Iain Gilchrest and his team from the University of Bristol's Department of Experimental Psychology for their help and support in designing these experiments and gathering the data. 
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{icmi17}
