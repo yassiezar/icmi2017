@@ -269,6 +269,8 @@ Again, these results are in line with what we expected and is supported by liter
 
 Figure~\ref{fig:tilt-err} shows the results recorded during the target search experiment for the tilt dimension. Plots are presented for each of the three pitch gain gradient's, i.e. \emph{lo}, \emph{med} and \emph{hi}. Scatter plots of the subjects' guesses of where the targets are vs. the targets' actual locations are given, along with linear regression plots to demonstrate the correlation between the data sets. A histogram is also given along with each plot to help the reader visualise the spread of the error data. A set of box-plots are also given in Figure~\ref{fig:tilt-boxplots} to convey the average angular error between the subjects' guesses and the targets' true position.
 
+The results are summarised in Table~\ref{tab:tilt-results}.
+
 %\begin{figure}
   %\centering
   %\includegraphics[width=0.5\textwidth]{figures/tilt_err_lo.png}
@@ -305,6 +307,19 @@ Figure~\ref{fig:tilt-err} shows the results recorded during the target search ex
   \caption{A set of box-plots to summarise the results in the angular error data from the tilt dimension. There is a plot for each of the \emph{lo}, \emph{med} and \emph{hi} configurations. }
   \label{fig:tilt-boxplots}
 \end{figure}
+
+\begin{table}
+  \centering
+  \caption{A summary of the tilt results for the target search experiment. The results include the average and standard deviations given in radians, as well as the Pearson and Spearman correlation R-scores.}
+  \label{tab:tilt-results}
+  \begin{tabular}{|l|l|l|l|l|}
+    \hline
+    & $\mu$ & $\sigma$ & $R_{P}$ & $R_{S}$ \\\hline\hline
+    \emph{lo}  & -0.395 & 0.455 & 0.339 & 0.396 \\\hline
+    \emph{med} & -0.321 & 0.360 & 0.440 & 0.519 \\\hline
+    \emph{hi}  & -0.336 & 0.392 & 0.479 & 0.547 \\\hline
+  \end{tabular}
+\end{table}
 
 We can see from the plots that there is a significant linear correlation between the user's guesses and the actual locations of the targets, indicating that the varying pitch is working as expected and the users in general are interpreting the cues correctly. This is supported by the Pearson correlation coefficient of the datasets that equate to 0.34, 0.44 and 0.48 for the \emph{lo}, \emph{med} and \emph{hi} configurations respectively, each with a statistical significance lower than 5\%, indicating that it is reasonable to trust the correlation scores. The Spearman correlation scores are 0.40, 0.52, 0.55 for each respective dataset with a significance level still below 5\%. 
 
@@ -359,12 +374,14 @@ The results from the target search experiment in the pan dimension are given in 
 
 \begin{table}
   \centering
-  \caption{A summary of the pan results for the target search experiment. The results include the absolute average and standard deviations given in radians, as well as the Pearson and Spearman correlation R-scores.}
+  \caption{A summary of the pan results for the target search experiment. The results include the average and standard deviations given in radians, as well as the Pearson and Spearman correlation R-scores.}
   \label{tab:pan-results}
   \begin{tabular}{|l|l|l|l|l|}
     \hline
-    & $\mu$ & $\sigma$ & $R_{P}$ & $R_{S}$ \\\hline
-    \emph{lo} &helo &jasd &asdad &asdads \\\hline
+    & $\mu$ & $\sigma$ & $R_{P}$ & $R_{S}$ \\\hline\hline
+    \emph{lo}  & -0.020 & 0.320 & 0.715 & 0.784 \\\hline
+    \emph{med} & -0.013 & 0.278 & 0.756 & 0.802 \\\hline
+    \emph{hi}  & -0.054 & 0.314 & 0.709 & 0.754 \\\hline
   \end{tabular}
 \end{table}
 
