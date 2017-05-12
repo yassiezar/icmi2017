@@ -309,8 +309,7 @@ Based on previous research results[CITE], these results were somewhat expected. 
 
 The performance between the three difference pitch gradient configurations can be compared using different metrics. The previous sections established the accuracy difference between the configurations. Here we compare the performance in terms of the time it took each subject to find a target. 
 
-For this analysis we opt to use Fitts's Law, which states that there is a logarithmic relation between the time it took to find a target and the difficulty of finding the target, i.e. its difficulty index. It also gives us a so-called `index of performance' that we can use as a metric to compare the results between the three configurations. Fitts's Law is given in Equation~\ref{eq:fitts-base}. 
-
+For this analysis we opt to use Fitts's Law~\cite{fitts1954information}, which states that there is a logarithmic relation between the time it took to find a target and the difficulty of finding the target, i.e. its difficulty index. It also gives us a so-called `index of performance' that we can use as a metric to compare the results between the three configurations. Fitts's Law is given in Equation~\ref{eq:fitts-base}. 
 
 \begin{equation}
   \label{eq:fitts-base}
@@ -331,37 +330,54 @@ where $\sigma$ is the standard deviation in the error data, taken as the differe
 
 \begin{equation}
   \label{eq:fitts-simple}
-  t = a + b\log_2\left(\frac{d}{4.133\sigma} + 1\right)
+  t = a + b\log_2\left(\frac{d}{4.133\sigma} + 1\right) = a + b ID
 \end{equation}
 
-We used the relation from Equation~\ref{eq:fitts-simple} and fitted a line through the distance-time data we gathered. The resulting plots are given in Figures~\ref{fig:fitts-lo} to~\ref{fig:fitts-hi}. 
+Here $ID$ is shorthand for the Index of Difficulty. We used the relation from Equation~\ref{eq:fitts-simple} and fitted a line through the distance-time data we gathered. The resulting plots are given in Figures~\ref{fig:fitts-lo} to~\ref{fig:fitts-hi}. 
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/fitts_lo.png}
-  \caption{A plot showing the data for the time it took for the user to point the Tango to where they think the next target was in the `lo' configuration}
+  \caption{A plot showing the data for the time it took for the user to point the Tango to where they think the next target was in the `lo' configuration. }
   \label{fig:fitts-lo}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/fitts_med.png}
-  \caption{A plot showing the data for the time it took for the user to point the Tango to where they think the next target was in the `med' configuration}
-  \label{fig:fitts-lo}
+  \caption{A plot showing the data for the time it took for the user to point the Tango to where they think the next target was in the `med' configuration. }
+  \label{fig:fitts-med}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/fitts_hi.png}
-  \caption{A plot showing the data for the time it took for the user to point the Tango to where they think the next target was in the `hi' configuration}
-  \label{fig:fitts-lo}
+  \caption{A plot showing the data for the time it took for the user to point the Tango to where they think the next target was in the `hi' configuration. }
+  \label{fig:fitts-hi}
 \end{figure}
+
+From these figures we can see that the data roughly obeys Fitts's Law and forms a logarithmic graph. This enables us to use the index of performance proposed by Fitts~\cite[p.~390]{fitts1954information}, given by
+
+\[
+  IP = \frac{ID}{t}
+\]
+
+We used this relation to plot Figure~\ref{fig:fitts-performance}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/fitts_performance.png}
+  \caption{A plot comparing the indices of performance for the three different pitch gradient configurations.}
+  \label{fig:fitts-performance}
+\end{figure}
+
+From Figure~\ref{fig:fitts-performance} that the `lo' and `med' configurations give similar results with the `hi' configuration gives the best result, where it took the average subject between 7 to 9 seconds less to find the most difficult target with the `hi' configuration. 
 
 \section{Future Work and Conclusion}
 
 \section{Acknowledgements}
 
-We would like to thank Prof. Iain Gilchrest and his team from the University of Bristol's Department of Experimental Psychology for their help and support in designing these experiments and gathering the data. 
+We would like to thank Prof. Iain Gilchrest and his team from the University of Bristol's Department of Experimental Psychology for their help and support in designing these experiments, gathering and analysing the data. 
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{icmi17}
