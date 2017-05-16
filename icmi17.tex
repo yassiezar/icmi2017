@@ -326,9 +326,7 @@ This indicates that our subjects' incorrect answers are fairly consistent across
 
 \subsubsection{Tilt Results}
 
-Figure~\ref{fig:tilt-err} shows the results recorded during the target search experiment for the tilt dimension. Plots are presented for each of the three pitch gain gradients, i.e. \emph{lo}, \emph{med} and \emph{hi}. Scatter plots of the subjects' guesses of where the targets are vs. the targets' actual locations are given, along with linear regression plots to show the correlation between the data sets. A histogram is also given along with each plot to help the reader visualise the spread of the error data. Finally, a set of box-plots are given in Figure~\ref{fig:tilt-boxplots} to convey the average angular error between the subjects' guesses and the targets' true positions.
-
-The results are summarised in Table~\ref{tab:tilt-results}.
+Figure~\ref{fig:err-results} shows the results recorded during the target search experiment for the tilt dimension. Plots are presented for each of the three pitch gain gradients, i.e. \emph{lo}, \emph{med} and \emph{hi}. The left-hand plots are 2D frequency histograms plotting the angular errors of the subjects' target selections in the pan and tilt dimension. A 1D histogram is also given for the tilt angle errors along with the 2D plots to help the reader visualise the spread of the error data. Finally, a set of box-plots are given in Figure~\ref{fig:tilt-boxplots} to convey the average angular error between the subjects' guesses and the targets' true positions. The results are summarised in Table~\ref{tab:tilt-results}.
 
 \begin{figure}
   \centering
@@ -336,7 +334,7 @@ The results are summarised in Table~\ref{tab:tilt-results}.
   \includegraphics[width=0.5\textwidth]{figures/tilt_err_med.png}
   \includegraphics[width=0.5\textwidth]{figures/tilt_err_hi.png}
   \caption{The results for the target search experiment in the tilt dimension. Each plot contains the results for the \emph{lo}, \emph{med} and \emph{hi} pitch gain gradients respectively. The plot on the left is a scatter plot correlation graph between the subjects' guesses and the targets' true positions and the plots on the right are histograms for the error in these guesses. }
-  \label{fig:tilt-err}
+  \label{fig:err-results}
 \end{figure}
 
 \begin{figure}
@@ -359,22 +357,22 @@ The results are summarised in Table~\ref{tab:tilt-results}.
   \end{tabular}
 \end{table}
 
-We can see from the plots that there is a relatively strong linear correlation between the user's guesses and the actual locations of the targets, indicating that the varying pitch is working as expected and the subjects in general are interpreting the cues correctly. This is supported by the Pearson correlation coefficient of the datasets that equate to 0.34, 0.44 and 0.48 for the \emph{lo}, \emph{med} and \emph{hi} configurations respectively, each with a statistical significance lower than 5\%, indicating that it is reasonable to trust the correlation scores. The Spearman correlation scores are 0.40, 0.52, 0.55 for each respective dataset with a significance level still below 5\%. 
+We found that there is a strong correlation between the subjects' guesses and the actual locations of the targets, shown with strong Pearson and Spearman correlation scores. This indicates that the varying pitch is working as expected and the subjects in general are interpreting the cues correctly. Both the Spearman and Pearson correlation scores have statistical significance below the critical 5\% threshold level, indicating that it is reasonable to trust these correlation scores. 
 
-The average errors of the datasets are closer to one another, with the \emph{lo} gradient giving the largest absolute error at \SI{0.46}{\radian} and the \emph{med} and \emph{hi} a similar absolute error of \SI{0.36}{\radian} and \SI{0.39}{\radian} respectively. This is in line with the correlation scores with the \emph{lo} gradient giving a significantly worse result than the \emph{med} and \emph{hi} gradients and the \emph{hi} gradient giving the best results overall with its high correlation score and relatively low absolute angular errors and standard deviation. 
+Both the absolute and raw averages of the datasets are relatively close to one another, with the \emph{lo} gradient giving the largest absolute error and standard deviation at \SI{0.40}{\radian} and \SI{0.46}{\radian}. The \emph{med} and \emph{hi} have similar absolute errors of \SI{0.32}{\radian} and \SI{0.34}{\radian} respectively. This is in line with the correlation scores with the \emph{lo} gradient giving a significantly worse result than the \emph{med} and \emph{hi} gradients and the \emph{hi} gradient giving the best results overall with its high correlation score and relatively low absolute angular errors and standard deviation. 
 
-It can also be seen that the data is not normally spread and displays a significant skewing to the negative side indicating a potential bias amongst the experiment subject-base that must be taken into account. This non-normality makes analysing the mean data with the conventional t-test and analysis of variance unreliable (ANOVA). We therefore use the non-parametric versions of the ANOVA test, i.e. the Kruskal-Wallis test~\cite{kruskal1952use} and Mood's median test~\cite{mood1950introduction}, to show the statistical difference between the datasets. The results show that the $p$-values fall outside of the critical 10\% threshold, meaning that the results from the three datasets are statistically different from one another, but the $p$-value for Kruskal-Wallis test falls very closely on the boundary. The values are shown in Table~\ref{tab:tilt-stats}.
+It can also be seen that the data is not normally spread and displays a significant skewing to the negative side indicating a potential bias amongst the experiment subject-base that must be taken into account. This non-normality makes analysing the mean data with the conventional t-test and analysis of variance unreliable (ANOVA). We therefore use the non-parametric version of the repeated-measure ANOVA test, i.e. the Friedman test~\cite{friedman1937use}, on the medians of the subject data to find the statistical significance of the differences between the datasets. We use the median values here since the data is not normally spread and there is significant noise within the data which may contaminate the median values. This results in a $p$-value of 0.06\%, which falls below the commonly-used 5\% critical threshold and implies that there is statistically significant difference between the three datasets. 
 
-\begin{table}
-  \centering
-  \caption{The results of the standard ANOVA test, as well as the Kruskal-Wallis and Mood's non-parametric versions of the ANOVA test.}
-  \label{tab:tilt-stats}
-  \begin{tabular}{|l|l|l|}
-    \hline
-    $p_{ANOVA}$ & $p_{KW}$ & $p_{M}$ \\\hline
-    2.91\% & 9.06\% & 5.31\% \\\hline
-  \end{tabular}
-\end{table}
+%\begin{table}
+  %\centering
+  %\caption{The results of the standard ANOVA test, as well as the Kruskal-Wallis and Mood's non-parametric versions of the ANOVA test.}
+  %\label{tab:tilt-stats}
+  %\begin{tabular}{|l|l|l|}
+    %\hline
+    %$p_{ANOVA}$ & $p_{KW}$ & $p_{M}$ \\\hline
+    %2.91\% & 9.06\% & 5.31\% \\\hline
+  %\end{tabular}
+%\end{table}
 
 At this stage it is unclear what causes this bias, but it is suspected that the ground introduced a position constraint within the subjects' minds, where the target could not appear below the ground, but can potentially appear well above the subjects' head, giving variable upper an lower limits that are dependant on the subjects' height and individual perception. We might have to consider using a non-linear increase in pitch as a function of tilt angle instead of the linear one we used for these experiments to remedy this bias. The skewness of the data makes it impossible to use 
 
@@ -382,21 +380,21 @@ These results highlight a clear and significant difference between the three dif
 
 \subsubsection{Panning Results}
 
-The results from the target search experiment in the pan dimension are given in Figure~\ref{fig:pan-err}, where a scatter plot of the subjects' guesses vs. the target's actual location are given along with a histogram of the error data between the subjects' guesses and the targets' actual positions. A set of box-plots of the angular errors are also given in Figure~\ref{fig:pan-boxplots}. A plot for each of the \emph{lo}, \emph{med} and \emph{hi} configurations are given. The results are summarised in Table~\ref{tab:pan-results}.
+The results from the target search experiment in the pan dimension are given in the $y$-axis of the heatmaps in Figure~\ref{fig:err-results}, where the angular errors in the pan and tilt dimensions are plotted against each other in a 2D frequency histogram. A set of box-plots of the angular errors are also given in Figure~\ref{fig:pan-boxplots}. A box-plot for each of the \emph{lo}, \emph{med} and \emph{hi} configurations are given. The results are summarised in Table~\ref{tab:pan-results}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{figures/pan_err_lo.png}
-  \includegraphics[width=0.5\textwidth]{figures/pan_err_med.png}
-  \includegraphics[width=0.5\textwidth]{figures/pan_err_hi.png}
-  \caption{The results for the target search experiment in the pan dimension. Each plot contains the results for the \emph{lo}, \emph{med} and \emph{hi} pitch gain gradients respectively. The plot on the left is a scatter plot correlation graph between the subjects' guesses and the targets' true positions and the plots on the right are histograms for the error in these guesses. }
-  \label{fig:pan-err}
-\end{figure}
+%\begin{figure}
+  %\centering
+  %\includegraphics[width=0.5\textwidth]{figures/pan_err_lo.png}
+  %\includegraphics[width=0.5\textwidth]{figures/pan_err_med.png}
+  %\includegraphics[width=0.5\textwidth]{figures/pan_err_hi.png}
+  %\caption{The results for the target search experiment in the pan dimension. Each plot contains the results for the \emph{lo}, \emph{med} and \emph{hi} pitch gain gradients respectively. The plot on the left is a scatter plot correlation graph between the subjects' guesses and the targets' true positions and the plots on the right are histograms for the error in these guesses. }
+  %\label{fig:pan-err}
+%\end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/pan_err_boxplot.png}
-  \caption{A plot showing a histogram of the pan errors, along with the corresponding box plots. }
+  \caption{A set of box-plots to summarise the results in the angular error data from the pan dimension. There is a plot for each of the \emph{lo}, \emph{med} and \emph{hi} configurations. }
   \label{fig:pan-err-boxplots}
 \end{figure}
 
@@ -413,27 +411,26 @@ The results from the target search experiment in the pan dimension are given in 
   \end{tabular}
 \end{table}
 
-The scatter plots display evidence of a very strong linear correlation between the subjects' guesses and the targets' true pan angles. This is confirmed by both the Pearson and Spearman correlation scores of above 0.7 for all three datasets, with the \emph{med} configuration displaying the best result at 0.75 for the Pearson score and 0.8 for the Pearson, with a statistical level of significance well below 5\%. 
+There is a very strong linear correlation between the subjects' guesses and the targets' true pan angles, shown by the high Pearson and Spearman correlation scores of above 0.7 for all of the datasets, with the \emph{med} configuration displaying the best result at 0.75 for the Pearson score and 0.8 for the Spearman, with a statistical level of significance well below 5\%. 
 
-The angular errors are roughly normally distributed around zero with comparable average errors and standard deviations, with the \emph{med} configuration producing the best results with the smallest average error and standard deviation. However, the differences are not big enough (approximately 6\% difference, ANOVA $p$-value of less than 5\%) to conclude that the pitch gradient has a clear effect on the performance. The results of the 
-[CHECK WTF HIER AANGAAN]
+The angular errors are roughly normally distributed around zero with comparable average errors and standard deviations, with the \emph{med} configuration producing the best results with the smallest average error and standard deviation. However, the differences are not big enough (approximately 6\% difference, Friedman test $p$-value greater than 84\%) to conclude that the pitch gradient has a clear effect on the performance. 
 
-\begin{table}
-  \centering
-  \caption{The results of the standard ANOVA test, as well as the Kruskal-Wallis and Mood's non-parametric versions of the ANOVA test.}
-  \label{tab:tilt-stats}
-  \begin{tabular}{|l|l|l|}
-    \hline
-    $p_{ANOVA}$ & $p_{KW}$ & $p_{M}$ \\\hline
-    0.056\% & 21.5\% & 80\% \\\hline
-  \end{tabular}
-\end{table}
+%\begin{table}
+  %\centering
+  %\caption{The results of the standard ANOVA test, as well as the Kruskal-Wallis and Mood's non-parametric versions of the ANOVA test.}
+  %\label{tab:tilt-stats}
+  %\begin{tabular}{|l|l|l|}
+    %\hline
+    %$p_{ANOVA}$ & $p_{KW}$ & $p_{M}$ \\\hline
+    %0.056\% & 21.5\% & 80\% \\\hline
+  %\end{tabular}
+%\end{table}
 
 Based on previous research results, these results were somewhat expected. However, they also confirm that the target search capability of a subject in the pan dimension is fairly robust to the changing pitch we used to convey the target's tilt location which is a useful result going forward. %The smallest angular error and highest correlation was achieved when the med gain gradient for the pitch was used. However, the difference between these values here is not significant enough to conclude that the varying pitch has a significant effect on the accuracy of the target search in the pan dimension. 
 
 \subsection{Time to Target}
 
-We used the relation from Equation~\ref{eq:fitts-simple} and fitted a line through the distance-time data we gathered. The resulting plots are given in Figure~\ref{fig:fitts}.% to~\ref{fig:fitts-hi}. 
+We used the relation from Equation~\ref{eq:fitts-simple} and fitted a line through the distance-time data we gathered. The raw data is displayed in binned form for the reader's convenience and a logarithmic line of best fit is drawn over the raw data. The resulting plots are given in Figure~\ref{fig:fitts}. 
 
 \begin{figure}
   \centering
@@ -444,7 +441,7 @@ We used the relation from Equation~\ref{eq:fitts-simple} and fitted a line throu
   \label{fig:fitts}
 \end{figure}
 
-From these figures we can see that the data roughly obeys Fitts's Law and forms a logarithmic graph. This enables us to use the index of performance, given by Equation~\ref{eq:fitts-performance}. We used this relation to plot Figure~\ref{fig:fitts-performance}.
+From these figures we can see that the data roughly obeys Fitts's Law and the logarithmic line of best fit very closely approximates the median values for the binned data for all three pitch gradient settings, with the exception of the relatively large offset in the last bin of the \emph{hi} configuration. This result enables us to use the index of performance, given by Equation~\ref{eq:fitts-performance}. We used this relation to plot Figure~\ref{fig:fitts-performance}.
 
 \begin{figure}
   \centering
