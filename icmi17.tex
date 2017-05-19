@@ -62,7 +62,7 @@
 \acmYear{2017}
 \received{May 2017}
 
- \begin{CCSXML}
+\begin{CCSXML}
 <ccs2012>
 <concept>
 <concept_id>10003120.10003121.10003122.10010854</concept_id>
@@ -324,7 +324,7 @@ These results are in line with what we expected and is supported by literature w
 
 %We used the data gathered during the pitch discrimination experiment to fit a cumulative distribution function (CDF) over each subject's dataset, giving us 126 samples (42 subject $\times$3 tests per subject). We then use the mean values from this fitting process to plot the 
 
-The results recorded during the pitch discrimination experiment are shown in Figure~\ref{fig:tone-guesses} where a bar plot is used to show the frequency of correct guesses for each tone difference level. 
+The results recorded during the pitch discrimination experiment are shown in Figure~\ref{fig:tone-guesses} where a bar plot is used to show the number of correct guesses for each tone difference level. 
 
 \begin{figure}
   \centering
@@ -333,9 +333,9 @@ The results recorded during the pitch discrimination experiment are shown in Fig
   \label{fig:tone-guesses}
 \end{figure}
 
-From Figure~\ref{fig:tone-guesses} we can see that the frequency of the correct guesses gradually decreases as the tone difference decreases and the majority of the samples in contained within the initial frequencies. 
+From Figure~\ref{fig:tone-guesses} we can see that the number of the correct guesses gradually decreases as the tone difference decreases and the majority of the samples in contained within the initial frequencies. 
 
-Along with this, we fitted a cumulative distribution function (CDF) over each subject's set of results and used CDF's parameters to determine the cut-off threshold for each subject where the subject could no longer reliably tell two tones apart. We set this threshold at 75\% of the correct guesses, starting from the largest tone differences and we found the mean cut-off threshold frequency to be approximately \SI{13.4}{\hertz} with an upper and lower 95\% confidence interval of \SI{2.6}{\hertz} and \SI{67.7}{\hertz}. The plot showing the subjects' threshold distribution can be seen in Figure~\ref{fig:tone-threshold}. 
+Along with this, we fitted a cumulative distribution function (CDF) over each subject's set of results and used the CDFs parameters to determine the cut-off threshold for each subject where the subject could no longer reliably tell two tones apart. We set this threshold at 75\% of the correct guesses, starting from the largest tone differences, and we found the mean cut-off threshold frequency to be approximately \SI{13.4}{\hertz} with an upper and lower 95\% confidence interval of \SI{2.6}{\hertz} and \SI{67.7}{\hertz}. The plot showing the subjects' threshold distribution can be seen in Figure~\ref{fig:tone-threshold}. 
 
 %As one might expect, the number of samples at the extreme, larger tone differences are significantly higher than for the smaller differences, where around 80\% of the respondents' correct answers were given at a difference of \SI{16}{\hertz} or more, with the reason being that it is easier to discriminate between two tones with a large tone difference. The number of incorrect guesses in this interval makes up approximately 50\% of the total number of incorrect guesses. For frequencies less than \SI{16}{\hertz}, the number of correct guesses drops down to 20\% of the total correct guesses, while the amount of incorrect guesses remain around 50\% of the total incorrect guesses made. This indicates that our subjects' incorrect answers are fairly consistent across the frequency spectrum, but correct tonal discrimination is far more likely to occur with frequency differences larger than \SI{16}{\hertz}.  
 
@@ -384,6 +384,7 @@ The angular errors are roughly normally distributed around zero with comparable 
 Based on previous research results, these results were somewhat expected. However, they also confirm that the target search capability of a subject in the pan dimension is fairly robust to the changing pitch we used to convey the target's tilt location which is a useful result going forward. %The smallest angular error and highest correlation was achieved when the med gain gradient for the pitch was used. However, the difference between these values here is not significant enough to conclude that the varying pitch has a significant effect on the accuracy of the target search in the pan dimension. 
 
 \subsubsection{Tilt Results}
+\label{sec:tilt-results}
 
 The $y$-axes in Figure~\ref{fig:err-results} show the results recorded during the target search experiment for the tilt dimension. Plots are presented for each of the three pitch gain gradients, i.e. \emph{lo}, \emph{med} and \emph{hi}. The plots are 2D frequency histograms plotting the angular errors of the subjects' target selections in the pan and tilt dimensions. A set of box-plots are also given in Figure~\ref{fig:err-boxplots} to convey the average angular error between the subjects' guesses and the targets' true positions. All of the results are summarised in Table~\ref{tab:results}.
 
@@ -395,7 +396,7 @@ It can also be seen that the data is not normally spread, with a relatively larg
 
 At this stage it is unclear what causes this bias, but it is suspected that the ground introduces a position constraint within the subjects' minds, where the target cannot appear below the ground, but can potentially appear well above the subjects' head, giving variable upper an lower limits that are dependant on the subjects' height and individual perception. Going forward, we may have to consider using a non-linear increase in pitch as a function of tilt angle instead of the linear one we used for these experiments to remedy this bias. 
 
-Furthermore, Figure~\ref{fig:tone-threshold} shows the distribution of the cut-off frequency thresholds that were found in Section~\ref{sec:character}, as well as a plot of the median values of the errors in the tilt dimension.  with an upper and lower 95\% confidence interval of \SI{2.6}{\hertz} and \SI{67.7}{\hertz} with an upper and lower 95\% confidence interval of \SI{2.6}{\hertz} and \SI{67.7}{\hertz} with an upper and lower 95\% confidence interval of \SI{2.6}{\hertz} and \SI{67.7}{\hertz}
+Furthermore, Figure~\ref{fig:tone-threshold} shows the distribution of the cut-off frequency thresholds that were found in Section~\ref{sec:character}, as well as a plot of the median values of the errors in the tilt dimension, transformed to a frequency using each dataset's respective pitch-gain gradient. 
 
 \begin{figure}
   \centering
@@ -405,13 +406,13 @@ Furthermore, Figure~\ref{fig:tone-threshold} shows the distribution of the cut-o
   \label{fig:tone-threshold}
 \end{figure}
 
-Figure~\ref{fig:tone-threshold} indicates that the subjects, on average, searched for the target until they could no longer detect a difference between the tone they were played and the \SI{512}{\hertz} on-target tone they were aiming for, shown by the vast majority of the data being located below the 75\% cut-off threshold. Furthermore, it can be seen that the \emph{hi} dataset comes the closest to the cut-off frequency and could possibly explain why it produces the smallest error: since the \emph{hi} pitch gradient is the most sensitive to changes in the tilt angle, it allowed the subjects to get closer to the true tilt by playing a more easily distinguishable tone.
+Figure~\ref{fig:tone-threshold} indicates that the subjects, on average, searched for the target until they could no longer detect a difference between the tone they were played and the \SI{512}{\hertz} on-target tone they were searching for, shown by the vast majority of the error data being located below the 75\% cut-off threshold frequency. Furthermore, it can be seen that the \emph{hi} dataset comes the closest to the cut-off frequency and could possibly explain why it produces the smallest error: since the \emph{hi} pitch gradient is the most sensitive to changes in the tilt angle, it allowed the subjects to get closer to the true tilt by playing a more easily distinguishable tone.
 
 These results highlight a clear and significant difference between the three different pitch gain gradients, with the \emph{hi} pitch-gain gradient producing the results closest to the true tilt. Moreover, it shows that a tone with varying pitch can be used to convey the tilt angle of a virtual target to a human user using a set of bone-conducting headphones to a degree of accuracy similar to those previously established in literature~\cite{bujacz2011sonification, katz2011spatial, zotkin2004rendering} purely using spatial sound interfaces.
 
 \subsection{Time to Target}
 
-Figure~\ref{fig:fitts} shows the box-plots of the time it takes to find a target as a function of the angular distance between the target. Here, the bin interval is based on the smallest effective width from Equation~\ref{eq:fitts-performance} for the three datasets. We then used the relation from Equation~\ref{eq:fitts-base} and fitted a logarithmic line of best fit through each subject's dataset and used the medians of the linefit parameters to plot the resulting lines of best fit shown in Figure~\ref{fig:fitts}. The data is binned to roughly correspond with the $w_e$ values for each dataset.
+Figure~\ref{fig:fitts} shows the box-plots of the time it takes to find a target as a function of the angular distance between the targets. Here, the bin interval is based on the smallest effective width from Equation~\ref{eq:fitts-performance} for the three datasets. We used the relation from Equation~\ref{eq:fitts-base} and fitted a logarithmic line of best fit through each subject's dataset and used the medians of the line-fit parameters to plot the resulting lines of best fit shown in Figure~\ref{fig:fitts}. 
 
 \begin{figure}
   \centering
@@ -422,7 +423,7 @@ Figure~\ref{fig:fitts} shows the box-plots of the time it takes to find a target
   \label{fig:fitts}
 \end{figure}
 
-From these figures we can see that the data approximates Fitts's Law and the logarithmic line of best fit very closely approximates the median values of the binned data for all three pitch gradient settings. This result enables us to use the index of performance, given by Equation~\ref{eq:fitts-performance}, which was used to plot Figure~\ref{fig:fitts-performance}. This plot shows the gradient parameters from from Equation~\ref{eq:fitts-performance} as a box-plot of the gradient parameters calculated during the linefitting process. Here a low gradient implies a slow increase in the time to target as a function of a target's $ID$. 
+From these figures we can see that the data approximates Fitts's Law, where the logarithmic line of best fit very closely approximates the median values of the binned data for all three pitch gradient settings. This result enables us to use the index of performance, given by Equation~\ref{eq:fitts-performance}, which was used to plot Figure~\ref{fig:fitts-performance}. This plot shows the gradient parameters from from Equation~\ref{eq:fitts-performance} as a box-plot of the gradient parameters calculated during the line-fitting process. Here a low gradient implies a slow increase in the time to target as a function of a target's $ID$. 
 
 \begin{figure}
   \centering
@@ -431,9 +432,9 @@ From these figures we can see that the data approximates Fitts's Law and the log
   \label{fig:fitts-performance}
 \end{figure}
 
-From Figure~\ref{fig:fitts-performance} it can be seen that that the \emph{lo} and \emph{med} configurations give similar results with the \emph{hi} configuration giving the steepest and worst average gradient. This is an interesting result and shows that there is a trade-off between speed and accuracy between the three pitch-gain gradients. 
+From Figure~\ref{fig:fitts-performance} it can be seen that that the \emph{lo} and \emph{med} configurations give similar results with the \emph{hi} configuration giving the steepest, and worst, average gradient. This is an interesting result and shows that there is a trade-off between speed and accuracy between the three pitch-gain gradients. 
 
-A possible explanation for this behaviour is that the more extreme changes in the audio pitch with the \emph{hi} configuration does a better job of informing the user when they are on target, leading to a more accurate estimate. Conversely, the \emph{lo} gradient makes it more difficult for the user to know when they are on target, leading to a shorter search time, but at the cost of a lower accuracy. 
+A possible explanation for this behaviour is that the more extreme changes in the audio pitch with the \emph{hi} configuration does a better job of informing the user when they are on target, leading to a more accurate estimate. Conversely, the \emph{lo} gradient makes it more difficult for the user to know when they are on target, leading to a shorter search time, but at the cost of a lower accuracy. This can be confirmed by the results obtained in Section~\ref{sec:tilt-results}. 
 
 \section{Conclusion and Future Work}
 \label{sec:conclusion}
