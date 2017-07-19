@@ -1,0 +1,120 @@
+However, despite the interest in the subject of this study, many problems
+   with the article or the actual study largely diminish my enthusiasm for
+   this work. 
+   First, it is stated that the navigation device aims to caters the needs
+   of the VI, but these needs are never described in the paper. This is thus
+   difficult to understand if this device aims at guiding the VI along a
+   path (far-field navigation) or to find an object in the peripersonal
+   space (short-range navigation). How this device will be combined with the
+   white cane? It seems that this device aims at guiding the user for
+   short-range navigation and at helping them avoiding obstacles, but there
+   are no questions about the needs of VI for this type of aid.
+   Second, the use of the auditory modality has definitely proved its
+   effectiveness to guide or orient VI (see Loomis studies) but, in order to
+   respond to VI needs, the sounds have to be well designed, minimally
+   intrusive and not boring. If the use of bonephones helps to avoid the
+   occlusion of real auditory information by the headphones, the use of a
+   simple tone seems completely inconsistent with the daily use of such
+   device. Furthermore, the use of a simple tone is in total contradiction
+   with the use of spatial audio and of binaural rendering technics (see
+   Begault).
+   Third, the device provides target’s information in device centred
+   reference frame and feedback is provided in head-centred coordinate,
+   there are absolutely no considerations about this problem.
+
+   1/ Introduction
+x   p1, l41, c1: please define acronym
+x   p1, l47, c1: please describe the needs of the VI
+-   p1, l24, c2: what will be the other feedback modes? Please describe the
+   whole system concept or focus on the audio interface.
+   p1, l42, c2: I suggest reading literature about sonification, there are a
+   lot of studies on the use of pitch to provide many different information.
+   However, the gap in literature regarding the use of a tone with a varying
+   pitch component can be explain be simple psychoacoustic concepts: the
+   spatial perception is based on the analysis by the auditory system of the
+   spectral component of the sound, the use of a single tone removes all the
+   effect of the HRTF on the sound and thus make it impossible to locate the
+   sound. I suggest to the authors to work with more complex sounds.
+
+   2/ Previous work
+   Loomis and his team did a lot of works on navigation aids; please do not
+   forget to cite the relevant literature. On 3D-audio, a lot of works were
+   also done by Walker and by Katz.
+
+x   P2, l53, c1: The Voice has no relation to a so-called “soundscapes”.
+   The Voice is a sensory substitution device. This type of device allows to
+   understand how, with a lot of learning, auditory information are process
+   as visual information by VI. 
+x   P2, l4, c2: ref 32 concerns only early blind humans, Works by Lessard and
+   Lewald held to revise these results.
+
+   3/ Portable Navigation System
+x   p3 : please indicate vibration output and other modalities in the
+   diagram, if not the present system is not multimodal but only based on
+   audio feedback.
+
+   P3, l30, c1: there are a lot of literatures on the use of spatial audio
+   over bonephone (see Walker for example).
+?   P3, l35, c1: what is the target? An object to grasp? An obstacle? Please
+   provide some examples. This is hard to understand what type of
+   information the system will provide to blind people.
+x   P3, l39, c1: “these two sets of parameters” = the position of the
+   target with respect to the Tango? There is maybe a lack of information
+   regarding the Tango to understand this part of the project.
+
+   4/ Audio Interface
+x   P3, l46, c1: typo error
+-   P3, l49, c1: it seems that the your “vertical plane” corresponds to
+   the Tango screen, but this is not obvious. And the reader does not know
+   at this state that the distance is not rendered.
+x   P3, l53, c1: What is the name of the spatial audio library? 
+x   P3, l10, c2: What types of HRTF are used in OpenAL library? (Generic such
+?   as Kemar? Or measured on real subjects?) OpenAL is very bad for providing
+   good elevation cues, maybe the use of another library might help you for
+   the Tilt direction. However, the localisation of sounds in lateral
+   direction is based on the interaural time and level difference (ITD and
+   ILD). The authors should know that.
+?   P3, p4.2: The presentation of information (here tilt direction) thru the
+   variation of an auditory parameter (here the pitch) is called
+   sonification. A number of studies deal with the association of a specific
+   information to pitch attribute and I think that researchers from ICAD
+   community have already addressed the specific case of height sonification
+   with pitch.
+x   In this paragraph, this is difficult to understand if pitch variations
+   provide information on object height or object position with respect to
+   camera angle. 
+x   P3, l46, c2: height perception is closely related to pitch see Blauert
+   (Spatial Hearing) for more information. This relation should be taken
+   into account for the mapping of pitch to tilt direction.
+
+   5/ Experiments
+x   P4, p5.2: A sinusoidal tone is the most difficult sound to localize, was
+   it continuous or pulsed?
+?   P4, l46, c2: Please give the object position in term of azimuth and
+   elevation.
+x   P5, fig3: Please provide distance from the middle in degree.
+
+
+   Begault DR (1994) 3-D sound for virtual reality and multimedia. Academic
+   Press, Cambridge 
+   Loomis JM, Golledge RG, Klatzky RL (1998) Navigation system for the
+   blind: auditory display modes and guidance. Presence: Teleoperators
+   Virtual Environ 7:193–203 
+   Walker BN, Lindsay J (2005) Navigation performance in a virtual
+   environment with bonephones. In: Proceedings of international conference
+   on auditory display, Limerick, Ireland, pp 260–263 
+   Walker BN, Lindsay J (2006) Navigation performance with a virtual
+   auditory display: Navigation performance with a virtual auditory display:
+   effects of beacon sound, capture radius, and practice. Hum Factors: J Hum
+   Fact Ergonomics Soci Sum 48(2):265–278 
+   Katz, B. et al (2012) NAVIG: augmented reality guidance system for the
+   visually impaired - Combining object localization, GNSS, and spatial
+   audio. Virtual Reality 16:253–269 
+   Parseihian G, Conan S, Katz B (2012) Sound effect metaphors for near
+   field distance sonification, In: Proceedings of international conference
+   on auditory display, Atlanta, USA
+   N. Lessard, M. Pare ́, F. Lepore, and M. Lassonde, “Early-blind human
+   subjects localize sound sources better than sighted subjects,” Nature
+   395(6699), 278–280 (1998).
+    J. Lewald, “Vertical sound localization in blind humans,”
+   Neuropsychologia 40(12), 1868–1872 (2002). 

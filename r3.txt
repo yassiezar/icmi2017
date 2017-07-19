@@ -1,0 +1,56 @@
+(3) PAPER WEAKNESSES
+   Overall, theories related to signal processing and system dynamic are
+   just forgotten in the analysis of the issue and discussion.
+   Then, the technical accuracy has a lack related to the widely known
+   theoretical foundations.
+   I have also an issue on the learning curve impact on each experiment. In
+   the experimental protocol, we don't see any training phase.
+
+   In the introduction, always define the accronyme such as 'Visual Impaired
+   (VI)'. HRTF has to be also defined as VI and any other accronym in the
+   paper.
+   In the introduction, Fitts’s Law is a psychomotor behavior law NOT
+   related to HCI (https://en.wikipedia.org/wiki/Psychophysics).
+   However, HCI uses it, as other related fields.
+   p.2 line 35: 'accuracy and has has been', two has
+   Section 4, 'in this work, Only'
+   Section 4, 'The audio is...' : the audio itself cannot be. The audio
+   signal is a sinusoidal waveform.
+   In this first paragraph, you should explain if you are using frequency
+   modulation or any other type of modulation.
+   'simple to manipulate': explain the manipulation in simple words before
+   the exact definition.
+   The operation of pitch and tone on a sinusoidal waveform has to be
+   explained.
+   Justification of bone-conducting choice is not clear. What is the link
+   between bone-conduction and tone/pitch ?
+   Bone conduction, as any other rigid structure, let only pass low
+   frequency like a low-pass filter. What is a elevated sound source in
+   signal processing theory ?
+   In 4.1, add the mathematical equation of the 'tone' operation for
+   selecting the pan direction.
+   In 4.2, add the mathematical equation of the operation.
+   For the high and low tone, you should explain why there is a natural
+   association. You should give an exemple.
+   In 4.2, add the cutoff frequency of the bone-conduction structure and the
+   cutoff frequency of the headphones device.
+   In 5.1, add the ethic approval from your insitution and any condition on
+   the protection of participants.
+   In 5.2, you has to add a figure for each experimental protocol in the
+   study.
+   Fig. 7 seems to be not at the correct place and should be move near the
+   first reference in the manuscript.
+   Fig. 5 should be redrawn.
+   On Fig. 8, what is the error measurment on the time ? I mean: time for
+   the overhead, context switching, time to access hardware (such as SSD,
+   WiFi), etc. Is the measurement timestamp or not ?
+
+
+   References:
+   The number of cited papers over the pass 6 years is low: some other
+   research could be done in parallel.
+   Some references have missing information: 4, 5, 13, 16, etc.
+
+Questions to authors
+
+   See (3) in the review.
