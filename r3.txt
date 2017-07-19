@@ -6,25 +6,25 @@
    I have also an issue on the learning curve impact on each experiment. In
    the experimental protocol, we don't see any training phase.
 
-   In the introduction, always define the accronyme such as 'Visual Impaired
+x   In the introduction, always define the accronyme such as 'Visual Impaired
    (VI)'. HRTF has to be also defined as VI and any other accronym in the
    paper.
-   In the introduction, Fitts’s Law is a psychomotor behavior law NOT
+x   In the introduction, Fitts’s Law is a psychomotor behavior law NOT
    related to HCI (https://en.wikipedia.org/wiki/Psychophysics).
    However, HCI uses it, as other related fields.
-   p.2 line 35: 'accuracy and has has been', two has
-   Section 4, 'in this work, Only'
-   Section 4, 'The audio is...' : the audio itself cannot be. The audio
+x   p.2 line 35: 'accuracy and has has been', two has
+x   Section 4, 'in this work, Only'
+x   Section 4, 'The audio is...' : the audio itself cannot be. The audio
    signal is a sinusoidal waveform.
-   In this first paragraph, you should explain if you are using frequency
+?   In this first paragraph, you should explain if you are using frequency
    modulation or any other type of modulation.
-   'simple to manipulate': explain the manipulation in simple words before
+?   'simple to manipulate': explain the manipulation in simple words before
    the exact definition.
-   The operation of pitch and tone on a sinusoidal waveform has to be
+?   The operation of pitch and tone on a sinusoidal waveform has to be
    explained.
-   Justification of bone-conducting choice is not clear. What is the link
+?   Justification of bone-conducting choice is not clear. What is the link
    between bone-conduction and tone/pitch ?
-   Bone conduction, as any other rigid structure, let only pass low
+?   Bone conduction, as any other rigid structure, let only pass low
    frequency like a low-pass filter. What is a elevated sound source in
    signal processing theory ?
    In 4.1, add the mathematical equation of the 'tone' operation for
