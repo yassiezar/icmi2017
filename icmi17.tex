@@ -94,7 +94,7 @@
 
 \section{Introduction}
 
-In recent years, governments have passed numerous laws to support the disabled and enable them play a more active role in modern society. However, it can be argued that the visually impaired (VI) lag behind in this regard, since so many systems and interfaces that people take for granted rely on the user's sense of sight. The Royal National Institute for he Blind has prioritised enabling the VI to use some of the services and products many people take for granted, such as public transport and cellphones~\cite{rnib-objectives}. Improvements in modern computing have made it possible for new and innovative solutions for these problems come to the fore.
+In recent years, governments have passed numerous laws to support the disabled and enable them play a more active role in modern societya and the Royal National Institute for Blind People has prioritised enabling the VI to use some of the services and products many people take for granted, such as public transport and cellphones~\cite{rnib-objectives}. Improvements in modern computing have made it possible for new and innovative solutions for these problems come to the fore.
 
 To this end, we are developing a mobile device-based navigation system that caters to the needs of the VI that is based on a Google Project Tango device, pictured in Figure~\ref{fig:tango}. A Tango-enabled device comes pre-equipped with powerful image-processing, localisation and depth-perception capabilities and is built on top of a standard Android platform, providing access to the entire set of input/output options that Android has to offer. The final system will use multiple feedback modes to guide a user toward a target destination while providing information on any oncoming obstacles.
 
@@ -164,9 +164,7 @@ The system we intend to ultimately deliver is a portable navigation device that 
 
 The system is based on a concept proposed in~\cite{bellotto2013, lock2017portable}, which uses a Google Tango device, pictured in Figure~\ref{fig:tango}. This is an Android-based cellphone or tablet device that comes equipped with an RGB-D camera to estimate depth. It combines an inertial measurement unit with powerful and robust landmark recognition and image processing algorithms to localise itself. An added benefit of this platform is its familiar, compact form-factor which will help overcome the hurdle of user-acceptance and usability. %Furthermore, this approach externalises the user's frame of reference for navigation from one relative to their head and gaze direction, commonly used by the head-mounted devices discussed in literature, to another reference frame relative to the hand holding the device and its orientation, demonstrated in Figure [SIT FIGUUR IN]. 
 
-We use a set of bone-conducting headphones (Figure~\ref{fig:tango}) that are placed externally on the user's head so that the system does not interfere with the normal hearing function of a VI user. 
-
-In the future, our system will use multiple feedback modes to provide the VI user with navigation and obstacle avoidance instructions. However, for this paper, we only considered the spatialised audio mode and its variation in pitch in order to determine its effectiveness in conveying pan and tilt angles to a user.
+We use a set of bone-conducting headphones (Figure~\ref{fig:tango}) that are placed externally on the user's head so that the system does not interfere with the normal hearing function of a VI user. In the future, our system will use multiple feedback modes to provide the VI user with navigation and obstacle avoidance instructions. However, for this paper, we only considered the spatialised audio mode and its variation in pitch in order to determine its effectiveness in conveying pan and tilt angles to a user.
 
 A diagram of the entire system pipeline is shown in Figure~\ref{fig:pipeline}. Here, the arrows indicate the direction of the flow of information. When the user taps the Tango's screen, a new virtual target is generated and its coordinates are sent to the audio generation module, along with the Tango's current position and orientation. The audio generator then produces an audio tone based on the difference between these two sets of parameters and send it to the audio output channel that plays it back to the user. The WiFi recording module is constantly monitoring the different parameter values of the Tango and target's position, as well as the system's output, and records it to a remotely stored datafile. 
 
@@ -241,11 +239,11 @@ For this progressive increase in difficulty, a 2-up, 1-down step process is used
 
 \subsubsection{Pitch Discrimination}
 
-Here we determined a subject's ability to tell tones with different frequencies apart, i.e. how well can they tell if a tone is high or low pitched? Here we play 2 tones to the subjects in succession with the second tone being higher or lower-pitched than the first. The subjects were then asked to select whether the second tone was higher or lower-pitched than the first.
+Here we determined a subject's ability to tell tones with different frequencies apart, i.e. how well they can tell if a tone is high or low pitched. Here we play 2 tones to the subjects in succession with the second tone being higher or lower-pitched than the first. The subjects were then asked to select whether the second tone was higher or lower-pitched than the first.
 
-The first tone is randomly generated while the second tone is generated by adding or subtracting the difference from the first tone. This difference determines the difficulty and is based on an exponential function, $f(n) = n^2$, where $n$ is increased or decreased to adjust the differentiation difficulty. 
+The first tone is randomly generated while the second tone is generated by adding or subtracting the difference from the first tone. This difference determines the difficulty and is based on an exponential function, $f(n) = 2^n$, where $n$ is increased or decreased to adjust the differentiation difficulty. 
 
-As with the spatial awareness experiment, a 2-up, 1-down step process is used: for every 2 consecutive correct answers, the pitch difference between the two tones is halved, increasing the difficulty, and the difference is doubled, i.e $n$ is incremented by 1, for every incorrect answer, making the tones easier to differentiate. Two step sequences are again used here, one starting with a large pitch difference (\SI{512}{\hertz}) between the tones and the other with a small difference (\SI{2}{\hertz}). The termination condition is when the two step sequences are within one octave of each other for 3 consecutive answers. Each subject performed this experiment twice. 
+As with the spatial awareness experiment, a 2-up, 1-down step process is used: for every 2 consecutive correct answers, the pitch difference between the two tones is halved, increasing the difficulty, and the difference is doubled, i.e $n$ is incremented by 1, for every incorrect answer, making the tones easier to differentiate. Two step sequences are again used here, one starting with a large pitch difference ($2^9=$ \SI{512}{\hertz}) between the tones and the other with a small difference ($2^1=$ \SI{2}{\hertz}). The termination condition is when the two step sequences are within one octave of each other for 3 consecutive answers. Each subject performed this experiment twice. 
 
 %\textbf{Tone Limit Experiment}: We determined the subjects' tone limits as a final experiment before they took part in the  main, target-finding experiment. We did this by playing a single tone that increases in pitch as time progresses. The subject was then asked to click a button as soon as he/she started hearing a tone and to click the button again when the tone became inaudible. The subject was then asked to repeat the process 6 times, but the tone direction was reversed after each run, meaning that the tone either started high and went low or started low and went high. 
 
@@ -261,9 +259,9 @@ Once the subject has pointed the camera toward the target, the HRTF centres the 
 
 28 targets are presented to each subject per round. The positions of these targets are randomly generated and are equally spread across the 4 quadrants on the vertical plane to prevent a lumping of targets at one location. After every round of experiments, the parameters controlling the tone's behaviour are adjusted. In this case, the rate of change of the tone's pitch is adjusted to make the pitch increase at a lower or higher rate as a function of the tilt angle between the target and the subject's current gaze direction. This is done to see whether, for example, a more rapid increase in pitch will help the subject find the target faster. 
 
-The distance between the subject and the target is not considered here and the targets are therefore generated on the vertical plane at a constant \SI{2}{\meter} from the subject. Throughout the experiment, various parameters of the target and the subject are recorded and streamed in real-time to a laptop computer via a WiFi connection.
+The distance between the subject and the target is not considered here and the 3D targets are therefore generated at a constant distance from the subject. Throughout the experiment, various parameters of the target and the subject are recorded and streamed in real-time to a laptop computer via a WiFi connection.
 
-The subjects were given a few minutes without a blindfold prior to the experiment started where they could familiarise themselves with the system where they could confirm the target's location with their own eyes.
+The subjects were given a few minutes without a blindfold prior to the experiment started where they could familiarise themselves with the system and confirm the target's location with their own eyes.
 
 \subsubsection{Metrics}
 
@@ -273,7 +271,7 @@ The accuracy is given as the difference between the Tango's angular orientation 
 
 %The performance between the three difference pitch gradient configurations can be compared using different metrics. The previous sections established the difference in accuracy between the configurations.
 
-We also compare the performance of the three pitch gradient settings in terms of the time it takes each subject to find a target. However, since each subject is presented with a different, randomly generated set of targets, a direct time comparison is not possible. Therefore, for this analysis, we opt to use Fitts's Law~\cite{fitts1954information}, since modified by MacKenzie to give better results when working with uncertain target sizes and noisy data~\cite{mackenzie1992fitts}, which states that there is a relation between the time it takes to find a target and the index of difficulty of the target (the ratio between the distance to the target and its width). It also gives us a so-called `index of performance' that we can use as a metric to compare the results between the three configurations. Fitts's Law is given by  
+We also compare the performance of the three pitch gradient settings in terms of the time it takes each subject to find a target. However, since each subject is presented with a different, randomly generated set of targets, a direct time comparison is not possible. Therefore, for this analysis, we opt to use Fitts's Law~\cite{fitts1954information}, modified by MacKenzie to give better results when working with uncertain target sizes and noisy data~\cite{mackenzie1992fitts}, which states that there is a relation between the time it takes to find a target and the index of difficulty of the target (the ratio between the distance to the target and its width). It also gives us a so-called `index of performance' that we can use as a metric to compare the results between the three configurations. Fitts's Law is given by  
 
 \begin{equation}
   \label{eq:fitts-base}
@@ -282,7 +280,7 @@ We also compare the performance of the three pitch gradient settings in terms of
 
 %Here, $t$ is the time it takes to find the target and $ID$ is the index of difficulty for the target, while $w_e$ is the so-called effective width of the target and $a$ and $b$ are constants determined through regression.
 
-Here $t$ is the time it takes to find a target, $a$ and $b$ are constants determined through regression and $ID$ is a description of the difficulty of the target, given as logarithmic function of the ratio between the distance to the target and the target's width. In our case, the width of the target is variable, since the subjects do not select the target at a constant distance from the target centre. We therefore use MacKenzie's modified form for $ID$, given in Equation~\ref{eq:fitts-id}, to provide a better approximation of $ID$. Also, for our experiments we investigate angles. Since we set the targets a constant distance from the user, this is a simple trigonometric transformation.
+Here $t$ is the time it takes to find a target, $a$ and $b$ are constants determined through regression and $ID$ is a description of the difficulty of the target, given as logarithmic function of the ratio between the distance to the target and the target's width. In our case, the targets have no width, since they are points in space, and we therefore use MacKenzie's modified form for $ID$, given in Equation~\ref{eq:fitts-id}, to provide a better approximation of $ID$. Also, for our experiments we investigate angles. Since we set the targets a constant distance from the user, this is a simple trigonometric transformation.
 
 \begin{equation}
   \label{eq:fitts-id}
@@ -292,6 +290,7 @@ Here $t$ is the time it takes to find a target, $a$ and $b$ are constants determ
 Here $\theta$ is the angular distance between subsequent targets' centres and $w_e$ is the target's effective angular width, given by
 
 \begin{equation}
+  \label{eq:fitts-we}
   w_e = \sqrt{2\pi e}\sigma = 4.133\sigma,
 \end{equation}
 
@@ -300,8 +299,10 @@ where $\sigma$ is the standard deviation of the error data, taken here as the an
 
 \begin{equation}
   \label{eq:fitts-performance}
-  IP = \frac{ID}{t}.
+  IP = \frac{ID}{t},
 \end{equation}
+\noindent
+where $IP = \frac{1}{t}$ when $\sigma=0$.
 
 \section{Results}
 \label{sec:results}
@@ -318,7 +319,7 @@ Figure~\ref{fig:location-guesses} shows the results for the spatial awareness ex
   \label{fig:location-guesses}
 \end{figure}
 
-With the relatively low number of red, incorrect guesses, we see that the subjects were far more successful in correctly guessing the location of the sound source. This is further supported by the large number of samples at the minimum difference level of \textasciitilde\SI{3}{\cm}, indicating that the subjects reached this level more frequently and consistently. Here we can see that the subjects had little problem localising the left-right direction of a sound source. 
+With the relatively low number of incorrect guesses, we see that the subjects were far more successful in correctly guessing the location of the sound source. This is further supported by the large number of samples at the minimum difference level of \textasciitilde\SI{3}{\cm}, indicating that the subjects reached this level more frequently and consistently. Here we can see that the subjects had little problem localising the left-right direction of a sound source. 
 
 These results are in line with what we expected and is supported by literature which indicates that humans are very adept at localising the location of a sound source and this ability was apparent for HRTF-generated pan location. 
 
@@ -333,9 +334,9 @@ The results recorded during the pitch discrimination experiment are shown in Fig
   \label{fig:tone-guesses}
 \end{figure}
 
-From Figure~\ref{fig:tone-guesses} we can see that the number of the correct guesses gradually decreases as the tone difference decreases and the majority of the samples in contained within the initial frequencies. 
+From Figure~\ref{fig:tone-guesses} we can see that the number of the correct guesses gradually decreases as the tone difference decreases and the majority of the samples in contained within the initial frequencies the subjects were presented with at the start of each step-sequence. 
 
-Along with this, we fitted a cumulative distribution function (CDF) over each subject's set of results and used the CDFs parameters to determine the cut-off threshold for each subject where the subject could no longer reliably tell two tones apart. We set this threshold at 75\% of the correct guesses, starting from the largest tone differences, and we found the mean cut-off threshold frequency to be approximately \SI{13.4}{\hertz} with an upper and lower 95\% confidence interval of \SI{2.6}{\hertz} and \SI{67.7}{\hertz}. The plot showing the subjects' threshold distribution can be seen in Figure~\ref{fig:tone-threshold}. 
+Along with this, we fitted a cumulative distribution function (CDF) over each subject's set of results and used the CDFs parameters to determine the cut-off threshold for each subject where the subject could no longer reliably tell two tones apart. We set this threshold at 75\% of the correct guesses, starting from the largest tone differences, and we found that mean cut-off threshold frequency is approximately \SI{13.4}{\hertz} with an upper and lower 95\% confidence interval of \SI{2.6}{\hertz} and \SI{67.7}{\hertz} respectively. The plot showing the subjects' threshold distribution can be seen in the top plot in Figure~\ref{fig:tone-threshold}. 
 
 %As one might expect, the number of samples at the extreme, larger tone differences are significantly higher than for the smaller differences, where around 80\% of the respondents' correct answers were given at a difference of \SI{16}{\hertz} or more, with the reason being that it is easier to discriminate between two tones with a large tone difference. The number of incorrect guesses in this interval makes up approximately 50\% of the total number of incorrect guesses. For frequencies less than \SI{16}{\hertz}, the number of correct guesses drops down to 20\% of the total correct guesses, while the amount of incorrect guesses remain around 50\% of the total incorrect guesses made. This indicates that our subjects' incorrect answers are fairly consistent across the frequency spectrum, but correct tonal discrimination is far more likely to occur with frequency differences larger than \SI{16}{\hertz}.  
 
@@ -343,7 +344,7 @@ Along with this, we fitted a cumulative distribution function (CDF) over each su
 
 \subsubsection{Panning Results}
 
-The results from the target search experiment in the pan dimension are given on the $x$-axis of the 2D histograms in in Figure~\ref{fig:err-results}, where the angular errors in the pan and tilt dimensions are plotted against each other in a 2D frequency histogram. A set of box-plots of the angular errors are also given in Figure~\ref{fig:err-boxplots}. A box-plot for each of the \emph{lo}, \emph{med} and \emph{hi} configurations are given. The results are summarised in Table~\ref{tab:results}.
+The results from the target search experiment in the pan dimension are given on the abscissa of the 2D histograms in Figure~\ref{fig:err-results}, where the angular errors in the pan and tilt directions are plotted against each other in a 2D frequency histogram. A set of box-plots of the pan errors are also given in Figure~\ref{fig:err-boxplots} for each of the \emph{lo}, \emph{med} and \emph{hi} configurations. The results are summarised in Table~\ref{tab:results}.
 
 \begin{figure}
   \centering
@@ -363,7 +364,7 @@ The results from the target search experiment in the pan dimension are given on 
 
 \begin{table}
   \centering
-  \caption{A summary of the pan and tilt angular error results for the target search experiment. The results include the absolute average error ($\mu_{abs}$), average error ($\mu$) and standard deviations ($\sigma$) given in radians, as well as the Pearson ($R_P$) and Spearman ($R_S$) correlation R-scores.}
+  \caption{A table of the pan and tilt angular error results for the target search experiment. The results include the absolute average error ($\mu_{abs}$), average error ($\mu$) and standard deviations ($\sigma$) given in radians, as well as the Pearson ($R_P$) and Spearman ($R_S$) correlation R-scores.}
   \label{tab:results}
   \begin{tabular}{|c|l|l|l|l|l|l|}
     \hline
@@ -377,42 +378,42 @@ The results from the target search experiment in the pan dimension are given on 
   \end{tabular}
 \end{table}
 
-There is a very strong linear correlation between the subjects' guesses and the targets' true pan angles, shown by the high Pearson and Spearman correlation scores of above 0.7 for all of the datasets, with the \emph{med} configuration displaying the best result at 0.75 for the Pearson score and 0.8 for the Spearman, with a statistical level of significance well below 5\%. The error data in Figure~\ref{fig:err-results} and the median and mean points from the box-plots in Figure~\ref{fig:err-boxplots} shows that the data in the pan dimension is approximately normally distributed around a zero error mean.  
+There is a very strong linear correlation between the subjects' guesses and the targets' true pan angles, shown by the high Pearson and Spearman correlation scores of above 0.7 for all of the datasets, with the \emph{med} configuration displaying the best result at 0.75 for the Pearson score and 0.8 for the Spearman score and a statistical level of significance well below 5\%. Figure~\ref{fig:err-results} and the median and mean points from the box-plots in Figure~\ref{fig:err-boxplots} show that the data in the pan dimension is approximately normally distributed around zero.  
 
-The angular errors are roughly normally distributed around zero with comparable average errors and standard deviations, with the \emph{med} configuration producing the best results with the smallest average error and standard deviation. However, the differences are not big enough (approximately 6\% difference, Friedman test $p$-value greater than 84\%) to conclude that the pitch gradient has a clear effect on the performance. 
+The three settings have comparable average errors and standard deviations, with the \emph{med} configuration producing the best results with the smallest average error and standard deviation. However, the differences are not big enough (approximately 6\% difference, Friedman test $p$-value greater than 84\%) to conclude that the pitch gradient has some effect on the performance in the pan dimension. 
 
-Based on previous research results, these results were somewhat expected. However, they also confirm that the target search capability of a subject in the pan dimension is fairly robust to the changing pitch we used to convey the target's tilt location which is a useful result going forward. %The smallest angular error and highest correlation was achieved when the med gain gradient for the pitch was used. However, the difference between these values here is not significant enough to conclude that the varying pitch has a significant effect on the accuracy of the target search in the pan dimension. 
+Based on previous research, these results were somewhat expected. However, they also confirm that as subject's target search capability in the pan dimension is fairly robust to the changing pitch we used to convey the target's tilt angle, which is a useful result going forward. %The smallest angular error and highest correlation was achieved when the med gain gradient for the pitch was used. However, the difference between these values here is not significant enough to conclude that the varying pitch has a significant effect on the accuracy of the target search in the pan dimension. 
 
 \subsubsection{Tilt Results}
 \label{sec:tilt-results}
 
-The $y$-axes in Figure~\ref{fig:err-results} show the results recorded during the target search experiment for the tilt dimension. Plots are presented for each of the three pitch gain gradients, i.e. \emph{lo}, \emph{med} and \emph{hi}. The plots are 2D frequency histograms plotting the angular errors of the subjects' target selections in the pan and tilt dimensions. A set of box-plots are also given in Figure~\ref{fig:err-boxplots} to convey the average angular error between the subjects' guesses and the targets' true positions. All of the results are summarised in Table~\ref{tab:results}.
+The ordniates in Figure~\ref{fig:err-results} also show the results recorded during the target search experiment for the tilt direction. A set of box-plots are also given in Figure~\ref{fig:err-boxplots} to convey the average tilt error between the subjects' guesses and the targets' true positions. All of the results are summarised in Table~\ref{tab:results}.
 
-We found that there is a significant correlation between the subjects' guesses and the actual locations of the targets, by relatively high shown Pearson and Spearman correlation scores of approximately 0.4 for each dimension, with the \emph{hi} gradient giving the strongest Pearson and Spearman scores of 0.48 and 0.55 respectively. This indicates that the varying pitch is working as expected and the subjects in general are interpreting the cues correctly. Both the Spearman and Pearson correlation scores have statistical significance below the critical 5\% threshold level, indicating that it is reasonable to trust these correlation scores. 
+We found that there is a significant correlation between the subjects' guesses and the actual locations of the targets, shown by relatively high shown Pearson and Spearman correlation scores of approximately 0.4 for each dimension, with the \emph{hi} gradient giving the strongest R-scores of 0.48 and 0.55 respectively. This indicates that the varying pitch is working as expected and the subjects in general are interpreting the cues correctly. Both the Spearman and Pearson correlation scores have statistical significance below the critical 5\% threshold level, indicating that it is reasonable to trust these correlation scores. 
 
-Both the absolute and raw averages of the datasets are relatively close to one another, with the \emph{lo} gradient giving the largest absolute error and standard deviation at \SI{0.40}{\radian} and \SI{0.46}{\radian}. The \emph{med} and \emph{hi} have similar absolute errors of \SI{0.32}{\radian} and \SI{0.34}{\radian} respectively. This is in line with the correlation scores with the \emph{lo} gradient giving a significantly worse result than the \emph{med} and \emph{hi} gradients and the \emph{hi} gradient giving the best results overall with its high correlation score and relatively low absolute angular errors and standard deviation. 
+The average errors of the datasets are relatively close to one another, with the \emph{lo} gradient giving the largest absolute error and standard deviation at \SI{0.40}{\radian} and \SI{0.46}{\radian}. The \emph{med} and \emph{hi} have similar absolute errors of \SI{0.32}{\radian} and \SI{0.34}{\radian} respectively. This is in line with the correlation scores, with the \emph{lo} gradient giving a worse result than the \emph{med} and \emph{hi} gradients and the \emph{hi} gradient giving the best results overall with its high correlation score and relatively low absolute angular errors and standard deviation. 
 
-It can also be seen that the data is not normally spread, with a relatively large offset in the mean and median values in Figure~\ref{fig:err-boxplots}, and displays a significant skewing to the negative side indicating a potential bias amongst the experiment subject-base that must be taken into account. This non-normality makes analysing the mean data with the conventional t-test and analysis of variance (ANOVA) unreliable. We therefore use the non-parametric version of the repeated-measure ANOVA test, i.e. the Friedman test~\cite{friedman1937use}, on the medians of the subject data to find the statistical significance of the differences between the datasets. We use the median values here since the data is not normally spread and there is significant noise within the data which may contaminate the median values. This results in a $p$-value of 0.06\%, which falls below the commonly-used 5\% critical threshold and implies that there is a statistically significant difference between the three datasets.  
+From Figure~\ref{fig:err-boxplots} it can also be seen that the data is not normally spread, with a relatively large offset between the mean and median values. This shows a significant skewing to the negative side indicating a potential bias amongst the experiment subject-base that must be taken into account. This non-normality makes analysing the mean data with the conventional t-test and analysis of variance (ANOVA) unreliable. We therefore use the non-parametric version of the repeated-measure ANOVA test, i.e. the Friedman test~\cite{friedman1937use}, on the medians of the subject data to find the statistical significance of the differences between the datasets. We use the median values here since the data is not normally spread and there is significant noise within the data which may contaminate the mean values. This results in a $p$-value of 0.06\%, which falls below the commonly-used 5\% critical threshold and implies that there is a statistically significant difference between the three settings.  
 
-At this stage it is unclear what causes this bias, but it is suspected that the ground introduces a position constraint within the subjects' minds, where the target cannot appear below the ground, but can potentially appear well above the subjects' head, giving variable upper an lower limits that are dependant on the subjects' height and individual perception. Going forward, we may have to consider using a non-linear increase in pitch as a function of tilt angle instead of the linear one we used for these experiments to remedy this bias. 
+At this stage, it is unclear what causes this bias, but it is suspected that the floor introduces a direction constraint within the subjects' minds, where the target cannot appear below the ground, but can potentially appear well above the subjects' head, giving variable upper an lower limits that are dependant on the subjects' height and individual perception. Going forward, we may have to consider using a non-linear increase in pitch as a function of tilt angle instead of the linear one we used for these experiments, to remedy this bias. 
 
 Furthermore, Figure~\ref{fig:tone-threshold} shows the distribution of the cut-off frequency thresholds that were found in Section~\ref{sec:character}, as well as a plot of the median values of the errors in the tilt dimension, transformed to a frequency using each dataset's respective pitch-gain gradient. 
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{figures/tone_threshold.png}
   \includegraphics[width=0.45\textwidth]{figures/tone_medians.png}
-  \caption{Plots of the distribution of the cut-off thresholds and the medians of the error data in the tilt dimension with a frequency scale.}
+  \includegraphics[width=0.45\textwidth]{figures/tone_threshold.png}
+  \caption{A plot of the distribution of the cut-off thresholds (top) and the medians of the error data in the tilt dimension with a frequency scale (bottom).}
   \label{fig:tone-threshold}
 \end{figure}
 
-Figure~\ref{fig:tone-threshold} indicates that the subjects, on average, searched for the target until they could no longer detect a difference between the tone they were played and the \SI{512}{\hertz} on-target tone they were searching for, shown by the vast majority of the error data being located below the 75\% cut-off threshold frequency. Furthermore, it can be seen that the \emph{hi} dataset comes the closest to the cut-off frequency and could possibly explain why it produces the smallest error: since the \emph{hi} pitch gradient is the most sensitive to changes in the tilt angle, it allowed the subjects to get closer to the true tilt by playing a more easily distinguishable tone.
+Figure~\ref{fig:tone-threshold} indicates that the subjects, on average, searched for the target until they could no longer detect a difference between the tone they were played and the \SI{512}{\hertz} on-target tone they were searching for, shown by the vast majority of the error data being located below the 75\% cut-off threshold frequency. Furthermore, it can be seen that the \emph{hi} dataset comes the closest to the cut-off frequency. This coult explain why it produces the smallest error: since the \emph{hi} pitch gradient is the most sensitive to changes in the tilt angle, it allowed the subjects to get closer to the true tilt by playing a more easily distinguishable tone.
 
-These results highlight a clear and significant difference between the three different pitch gain gradients, with the \emph{hi} pitch-gain gradient producing the results closest to the true tilt. Moreover, it shows that a tone with varying pitch can be used to convey the tilt angle of a virtual target to a human user using a set of bone-conducting headphones to a degree of accuracy similar to those previously established in literature~\cite{bujacz2011sonification, katz2011spatial, zotkin2004rendering} purely using spatial sound interfaces.
+These results show that a tone with varying pitch can be used to convey the tilt angle of a virtual target to a human user using a set of bone-conducting headphones to a degree of accuracy similar to those previously established in literature~\cite{bujacz2011sonification, katz2011spatial, zotkin2004rendering}. They also highlight a clear and significant difference between the three different pitch gain gradients, with the \emph{hi} pitch-gain gradient producing the results closest to the true tilt. 
 
 \subsection{Time to Target}
 
-Figure~\ref{fig:fitts} shows the box-plots of the time it takes to find a target as a function of the angular distance between the targets. Here, the bin interval is based on the smallest effective width from Equation~\ref{eq:fitts-performance} for the three datasets. We used the relation from Equation~\ref{eq:fitts-base} and fitted a logarithmic line of best fit through each subject's dataset and used the medians of the line-fit parameters to plot the resulting lines of best fit shown in Figure~\ref{fig:fitts}. 
+Figure~\ref{fig:fitts} shows the box-plots of the time it takes to find a target as a function of the angular distance between the targets. Here, the bin interval is based on the smallest effective width from Equation~\ref{eq:fitts-performance} for the three datasets. We used the relation from Equation~\ref{eq:fitts-base} and fitted a logarithmic line through regression for each subject then used the medians of the $a$ and $b$ parameters from Equation~\ref{eq:fitts-base}, found with the regression process, to plot the resulting lines of best fit shown in Figure~\ref{fig:fitts}. 
 
 \begin{figure}
   \centering
@@ -423,7 +424,7 @@ Figure~\ref{fig:fitts} shows the box-plots of the time it takes to find a target
   \label{fig:fitts}
 \end{figure}
 
-From these figures we can see that the data approximates Fitts's Law, where the logarithmic line of best fit very closely approximates the median values of the binned data for all three pitch gradient settings. This result enables us to use the index of performance, given by Equation~\ref{eq:fitts-performance}, which was used to plot Figure~\ref{fig:fitts-performance}. This plot shows the gradient parameters from from Equation~\ref{eq:fitts-performance} as a box-plot of the gradient parameters calculated during the line-fitting process. Here a low gradient implies a slow increase in the time to target as a function of a target's $ID$. 
+From these figures we can see that the data approximates Fitts's Law, where the logarithmic line of best fit very closely approximates the median values of the binned data for all three pitch gradient settings. This result enabled us to use the index of performance, $IP$, given by Equation~\ref{eq:fitts-performance}, which was used to plot Figure~\ref{fig:fitts-performance}. %@:This plot shows the gradient parameters from from Equation~\ref{eq:fitts-performance} as a box-plot of the gradient parameters calculated during the line-fitting process. Here a low gradient implies a slow increase in the time to target as a function of a target's $ID$. 
 
 \begin{figure}
   \centering
@@ -432,18 +433,18 @@ From these figures we can see that the data approximates Fitts's Law, where the 
   \label{fig:fitts-performance}
 \end{figure}
 
-From Figure~\ref{fig:fitts-performance} it can be seen that that the \emph{lo} and \emph{med} configurations give similar results with the \emph{hi} configuration giving the steepest, and worst, average gradient. This is an interesting result and shows that there is a trade-off between speed and accuracy between the three pitch-gain gradients. 
+It can be seen that that the \emph{lo} and \emph{med} configurations give similar results, while the \emph{hi} gives the worst results with the lowest slope. %ith the \emph{hi} configuration giving the steepest, and worst, average gradient. This is an interesting result and shows that there is a trade-off between speed and accuracy between the three pitch-gain gradients. 
 
-A possible explanation for this behaviour is that the more extreme changes in the audio pitch with the \emph{hi} configuration does a better job of informing the user when they are on target, leading to a more accurate estimate. Conversely, the \emph{lo} gradient makes it more difficult for the user to know when they are on target, leading to a shorter search time, but at the cost of a lower accuracy. This can be confirmed by the results obtained in Section~\ref{sec:tilt-results}. 
+A possible explanation for this behaviour is that the more extreme changes in the audio pitch with the \emph{hi} configuration does a better job of informing the user when they are on target, leading to a more accurate estimate, but also increases the time it takes to point in the right direction. Conversely, the \emph{lo} gradient makes it more difficult for the user to know when they are on target, leading to a shorter search time, but at the cost of a lower accuracy. This can be confirmed by the results obtained in Section~\ref{sec:tilt-results}. 
 
 \section{Conclusion and Future Work}
 \label{sec:conclusion}
 
-In this paper we discussed a set of experiments we performed to determine the effectiveness of our spatial audio interface in directing a subject to point a camera toward a virtual target, and how the parameters of the interface affect a subject's performance. 
+In this paper we presented a spatial audio interface to direct a subject to point a camera toward a virtual target. We also discussed a set of experiments we performed to determine its effectiveness and performance. %, and how the parameters of the interface affect a subject's performance. 
 
-We found that a spatial audio tone with a varying pitch can be used to convey the pan and tilt angles of a target to a user using a set of bone-conducting headphones and the angular errors made by the subjects are in line with the errors found in previous studies using similar audio interfaces. We also found that varying the pitch-gain gradient of our interface influences the accuracy of the system in the tilt dimension, as well as the time to target, without affecting the performance in the pan dimension. The steeper, \emph{hi}, pitch-gain gradient was found to produce the best results in this respect, followed by the \emph{med}. Furthermore, we found that there is a logarithmic relationship between the index of difficulty of a target and the time it took a subject to find the target, confirming that our interface adheres to Fitts's Law. However, there is a trade-off to be made between speed and accuracy, with the \emph{lo} pitch-gain gradient directing the user to the target in the shortest time. 
+We found that a spatial audio tone with a varying pitch can be used to convey the pan and tilt angles of a target to a user using a set of bone-conducting headphones, and the angular errors made by the subjects are in line with the errors found in previous studies using similar audio interfaces. We also found that varying the pitch-gain gradient of our interface influences the accuracy of the system in the tilt dimension, as well as the time to target, without affecting the performance in the pan dimension. The steeper, \emph{hi}, pitch-gain was found to produce the best results in this respect. Furthermore, we discovered a logarithmic relationship between the index of difficulty of a target and the time taken by a subject to find it, confirming that our interface adheres to Fitts's Law. However, there is a trade-off to be made between speed and accuracy, with the \emph{hi} pitch-gain gradient directing the user to the target in the longest time. 
 
-Future research will focus on integrating the voice and vibration feedback cues into the system and test the complete HMI and to add the ability to automatically refine the parameters of the HMI to better match the individual user's navigation habits and capability thereby increasing navigation performance and user satisfaction.
+Future research will focus on integrating voice and vibration feedback cues into the system, and to add the ability to automatically refine the parameters of the HMI to better match the individual user's navigation habits and capability, thereby increasing navigation performance and user satisfaction.
 
 %\section{Acknowledgements}
 %\label{sec:ack}
