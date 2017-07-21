@@ -8,7 +8,8 @@ I have gone through most of the works suggested (and more) and I have included t
 
 - The fully integrated hand-held Tango system we are using differs greatly from the wearable computer solutions used by Katz and Loomis, for example
 - Many of the 3D sound localisation work has been done using high-end closed-cup headphones, which allows for more complex sounds to be played and interpreted by the subjects' pennae, making tilt and azimuth localisation possible
-- 
+
+Furthermore, some reviewers expressed concerns about the lack of signal processing theory and the the simple sinusoidal tone we used. However, I believe the strength of this paper lies in the results that show that a simple, uncomplicated sine wave with varying pitch can be used to convey the pan/tilt angle of a target to a user using a very mobile and compact hand-held device. This leaves the future open for us or another expert to use a Tango device and improve the signal and the target-finding performance. 
 
 Next, I'd like to address the individual reviewers' concerns point by point and hopefully clarify some things for them. 
 
@@ -20,7 +21,7 @@ Next, I'd like to address the individual reviewers' concerns point by point and 
 
 - We selected a simple tone to base our initial study on; the objective of this paper was to determine how effective a varying pitch in a sine wave is at conveying a target's elevation and not to evaluate the quality of the tone. We have left the improvement of the tone emitted as future work. Furthermore, the use of the HRTF is restricted to the pan/azimuth dimension only
 
-!!- Humans are capable of separating their frames of reference for perception and action, at least in the visual realm (see Goodale and Haffenden)
+- Humans are capable of separating their frames of reference for perception and action, at least in the visual realm (see Goodale and Haffenden)
 
 2.2) Introduction
 
@@ -45,34 +46,40 @@ Next, I'd like to address the individual reviewers' concerns point by point and 
 - We used the generic, unadapted KEMAR model provided in OpenAL. I've updated the text to specify this. But again, we do not use OpenAL to convey the tilt, only the pan/azimuth.
 
 - We have gone through the ICAD database and tried to find the work you mentioned elsewhere as well, but failed. If you could provide a reference, it would be greatly appreciated. 
-!!- Claims varying pitch has been used before for height in ICAD. I cannot find the paper though
 
-- We use the high/low pitch to convey high/low targets respectively specifically because of this natural association and included a reference for it [20]. However, another reference is always good.
+- We use the high/low pitch to convey high/low targets respectively specifically because of this natural association and included a reference for it already [20]. However, another reference is always good.
 
 2.6) Experiments
 
-- A simple sinusoidal tone, devoid of any additional interesting spectral components, is difficult to localise in the tilt dimension. However, in the azimuth dimension IID/ITD is enough
-!!- A sine tone is the most difficult to localise??
+- A simple sinusoidal tone, devoid of any additional interesting spectral components, is indeed difficult to localise in the tilt dimension. However, a simple sine wave and the IID/ITD is enough to convey the pan/azimuth
 
 3) Reviewer 2:
 
-The reviewer emphasised that we needed to position our work better regarding existing litarature to highlight the novelty of our work and provided some helpful references. Having read these papers, I believe that with some rewording in the literature review section, we can make it clear how our work and approach differs from what has been done previously. E.g. not much work has been done on using non-occluding bonephones with 3D sound cues.  
+The reviewer emphasised the need to position our work better regarding existing literature to highlight the novelty of our work and provided some helpful references. Having read these papers, I believe that with some rewording in the literature review section, we can make it clear how our work and approach differs from what has been done previously. E.g. little work has been done on using non-occluding bonephones with 3D sound cues.  
 
 4) Reviewer 3:
+
+4.1) Preface
 
 !!- Signal processing (why did we not do it?)
 
 - Before the experiments were conducted, the subjects were given time to look for virtual targets while they could see the screen, allowing them to become familiar with what the `on-target' tone sounds like and what high/low pitches mean. Their time was not restricted and they could tell me when they felt comfortable with the process. I did not include this in the original text due to space concerns, but will update the text.  
 
-- Few language errors and text suggestions have been fixed 
+4.2) Paper
+
+- Language errors and text suggestions have been fixed 
+
+- The tone was frequency-modulated
 
 - Here the pitch refers to the frequency of the tone/sine wave in Hz. I can edit the paper to make this clearer. 
 
-- We selected bone-conducting headphones because they are discreet and do not occlude ambient sounds; and important factor for a VI user
+- On our sine wave we only manipulate the wave frequency, not the tone, making it rather simple to manipulate by adjusting the f in sin(2*pi*f)
+
+- We selected bone-conducting headphones because they are discreet and do not occlude ambient sounds; an important factor for a VI user
 
 !!- Bone conduction is low-pass filter. What is an elevated sound source in signal processing theory. 
 
-- On p3 l29 c2 reference [20] explains that human naturally associate high/low pitches with high/low targets. I've added another reference in the updated paper. I feel it is outside the scope of this work to explain this phenomenon in detail.
+- [20] explains that human naturally associate high/low pitches with high/low targets. I've added another reference in the updated paper. I feel it is outside the scope of this work to explain this phenomenon in detail.
 
 - More recent references have been included and current ones corrected. 
 

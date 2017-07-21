@@ -94,7 +94,6 @@ x   P4, p5.2: A sinusoidal tone is the most difficult sound to localize, was
    elevation.
 x   P5, fig3: Please provide distance from the middle in degree.
 
-
 -   Begault DR (1994) 3-D sound for virtual reality and multimedia. Academic
    Press, Cambridge 
 
