@@ -10,24 +10,30 @@ x   Page 1 modern societya => modern societies
    same time. Here are just a few references that should be considered
 
 
-   Menelas, B. A. J., Picinali, L., Bourdot, P., & Katz, B. F. (2014).
+x   Menelas, B. A. J., Picinali, L., Bourdot, P., & Katz, B. F. (2014).
    Non-visual identification, localization, and selection of entities of
    interest in a 3D environment. Journal on Multimodal User Interfaces,
    8(3), 243-256.
 
-   Geronazzo, M., Bedin, A., Brayda, L., Campus, C., & Avanzini, F. (2016).
+-  Uses pure 3D audio played over earphones
+
+x   Geronazzo, M., Bedin, A., Brayda, L., Campus, C., & Avanzini, F. (2016).
    Interactive spatial sonification for non-visual exploration of virtual
    maps. International Journal of Human-Computer Studies, 85, 4-15.
 
-   Lee, C. G., Oakley, I., Kim, E. S., & Ryu, J. (2016). Impact of
+-  Uses pure 3D audio, semi-unique HRTF and earphones
+
+x   Lee, C. G., Oakley, I., Kim, E. S., & Ryu, J. (2016). Impact of
    visual-haptic spatial discrepancy on targeting performance. IEEE
    Transactions on Systems, Man, and Cybernetics: Systems, 46(8), 1098-1108.
 
-   Ammi, M., & Katz, B. F. (2015). Intermodal audio–haptic intermodal
+-  Haptic feedback, not relevant here, but in future
+
+x   Ammi, M., & Katz, B. F. (2015). Intermodal audio–haptic intermodal
    display: improvement of communication and interpersonal awareness for
    collaborative search tasks. Virtual Reality, 19(3-4), 235-252.
 
-
+-  Haptic-audio collaborative search on map. Again, haptics not stricly appliciable here
 
 
 Questions to authors

@@ -37,7 +37,7 @@ x   p1, l47, c1: please describe the needs of the VI
    sound. I suggest to the authors to work with more complex sounds.
 
    2/ Previous work
-   Loomis and his team did a lot of works on navigation aids; please do not
+x   Loomis and his team did a lot of works on navigation aids; please do not
    forget to cite the relevant literature. On 3D-audio, a lot of works were
    also done by Walker and by Katz.
 
@@ -95,26 +95,49 @@ x   P4, p5.2: A sinusoidal tone is the most difficult sound to localize, was
 x   P5, fig3: Please provide distance from the middle in degree.
 
 
-   Begault DR (1994) 3-D sound for virtual reality and multimedia. Academic
+-   Begault DR (1994) 3-D sound for virtual reality and multimedia. Academic
    Press, Cambridge 
-   Loomis JM, Golledge RG, Klatzky RL (1998) Navigation system for the
+
+-  Fair point. More complex sounds can be considered in the future. Parameters for co-adaptation
+
+x   Loomis JM, Golledge RG, Klatzky RL (1998) Navigation system for the
    blind: auditory display modes and guidance. Presence: Teleoperators
    Virtual Environ 7:193–203 
-   Walker BN, Lindsay J (2005) Navigation performance in a virtual
+
+-  Fair point. Included
+
+-   Walker BN, Lindsay J (2005) Navigation performance in a virtual
    environment with bonephones. In: Proceedings of international conference
    on auditory display, Limerick, Ireland, pp 260–263 
-   Walker BN, Lindsay J (2006) Navigation performance with a virtual
+
+-  Fair point. Will include reference.
+
+-   Walker BN, Lindsay J (2006) Navigation performance with a virtual
    auditory display: Navigation performance with a virtual auditory display:
    effects of beacon sound, capture radius, and practice. Hum Factors: J Hum
-   Fact Ergonomics Soci Sum 48(2):265–278 
+
+-  Relevant reference, included. However, uses closed earphones
+
+-   Fact Ergonomics Soci Sum 48(2):265–278 
    Katz, B. et al (2012) NAVIG: augmented reality guidance system for the
    visually impaired - Combining object localization, GNSS, and spatial
    audio. Virtual Reality 16:253–269 
-   Parseihian G, Conan S, Katz B (2012) Sound effect metaphors for near
+
+-  Good reference. However, uses bulky wearable device, external cameras, controller. Not the same as our system in any way
+
+-   Parseihian G, Conan S, Katz B (2012) Sound effect metaphors for near
    field distance sonification, In: Proceedings of international conference
    on auditory display, Atlanta, USA
-   N. Lessard, M. Pare ́, F. Lepore, and M. Lassonde, “Early-blind human
+
+-  Interesting reference. More approporiate for distance rendering. We focus here on location
+
+x   N. Lessard, M. Pare ́, F. Lepore, and M. Lassonde, “Early-blind human
    subjects localize sound sources better than sighted subjects,” Nature
    395(6699), 278–280 (1998).
-    J. Lewald, “Vertical sound localization in blind humans,”
+
+-  Very good reference. Included in paper
+
+-    J. Lewald, “Vertical sound localization in blind humans,”
    Neuropsychologia 40(12), 1868–1872 (2002). 
+
+-  Good reference with which to compare our results
