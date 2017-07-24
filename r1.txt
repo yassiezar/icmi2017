@@ -9,6 +9,7 @@ However, despite the interest in the subject of this study, many problems
    white cane? It seems that this device aims at guiding the user for
    short-range navigation and at helping them avoiding obstacles, but there
    are no questions about the needs of VI for this type of aid.
+
    Second, the use of the auditory modality has definitely proved its
    effectiveness to guide or orient VI (see Loomis studies) but, in order to
    respond to VI needs, the sounds have to be well designed, minimally
@@ -18,6 +19,7 @@ However, despite the interest in the subject of this study, many problems
    device. Furthermore, the use of a simple tone is in total contradiction
    with the use of spatial audio and of binaural rendering technics (see
    Begault).
+
    Third, the device provides target’s information in device centred
    reference frame and feedback is provided in head-centred coordinate,
    there are absolutely no considerations about this problem.

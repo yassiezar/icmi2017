@@ -1,88 +1,62 @@
-1) General:
+1) General
 
-I'd like to thank everyone for their detailed reviews and constructive criticism. It is very helpful and will hopefully lead to a better paper
+We'd like to thank everyone for their detailed reviews and constructive criticism
 
-The general consensus seems to be that we need to reference more work relevant to our study so that we can position our work better and highlight the novelty of the work presented. Some of the reviewers also gave some suggestions for references. Furthermore, clarification on some points was also requested.
+1.1) General Concerns
 
-I have gone through most of the works suggested (and more) and I have included them as references in an updated version of the paper. However, I feel that this does not affect the novelty of the work presented: 
+-We need more references to position our work better and highlight its novelty and the reviewers gave suggestions for references. We have gone through the works suggested (and more) and included them in a revised paper. However, we feel that this doesn't affect the novelty of our work: 
 
-- The fully integrated hand-held Tango system we are using differs greatly from the wearable computer solutions used by Katz and Loomis, for example
-- Many of the 3D sound localisation work has been done using high-end closed-cup headphones, which allows for more complex sounds to be played and interpreted by the subjects' pennae, making tilt and azimuth localisation possible
+--The hand-held Tango differs greatly from the wearable computer solutions used by Katz and Loomis, for example, in its form-factor and how it interacts with the user/invironment
+--Much of the 3D sound localisation work was done with high-end closed-cup headphones and rich audio signals, where we focussed on non-occluding bonephones and simple tones
 
-Furthermore, some reviewers expressed concerns about the lack of signal processing theory and the the simple sinusoidal tone we used. However, I believe the strength of this paper lies in the results that show that a simple, uncomplicated sine wave with varying pitch can be used to convey the pan/tilt angle of a target to a user using a very mobile and compact hand-held device. This leaves the future open for us or another expert to use a Tango device and improve the signal and the target-finding performance. 
+-There were concerns about the pure sine wave stimuli used. Spectral perception is highly dependant on the individual, so we opted to use a generic sine wave for this initial study and use varying pitch to convey the elevation instead. We believe the strength of this paper lies in its results showing that a simple, pure sine wave with varying pitch can be used to convey a target's pan/tilt angle to a user with a mobile and compact hand-held device. We leave improving/personalising the tone and improving performance for future work.
 
-Next, I'd like to address the individual reviewers' concerns point by point and hopefully clarify some things for them. 
+-[20] explains the natural association between high/low pitches and high/low targets. We feel it's outside the scope of this work to explain this phenomenon in detail
 
-2) Reviewer 1:
+-Our system design is described in detail in another publication which we can't reference here without risking our anonymity
+
+1.2) Conclusion
+
+We believe that the biggest issues can be remedied by adding more relevant references to position our work better. Most of the ambiguities/confusion can also be cleared with some minor rewording and explanation. We're confident that the resulting paper, if accepted, will be a strong contribution to this conference
+
+2) Reviewer 1
 
 2.1) Preface
 
-- I agree that the needs of the VI was never fully specified and elaborated upon. In this context, we meant that there is a need for an indoor navigation system for the VI or something that can take them to the final destination of their journey, e.g. shop's entrance or a specific aisle in that shop and can be used in conjunction with a cane/dog, since only one hand is occupied, or none if a cellphone Tango is used in a breastpocket for example. This can definitely made more clear in text, I agree
+-We meant there's a need for an indoor navigation system that can take the VI to their final destination, e.g. a specific aisle in a shop and can be used with cane/dog, since only one hand is occupied; needs of the VI will made more clear
 
-- We selected a simple tone to base our initial study on; the objective of this paper was to determine how effective a varying pitch in a sine wave is at conveying a target's elevation and not to evaluate the quality of the tone. We have left the improvement of the tone emitted as future work. Furthermore, the use of the HRTF is restricted to the pan/azimuth dimension only
+-See 1.1
 
-- Humans are capable of separating their frames of reference for perception and action, at least in the visual realm (see Goodale and Haffenden)
+-Humans are capable of separating perception from action, i.e. they can externalise their frames of reference. See Goodale and Haffenden, and Heffenberg. This is a valid point; addressed in revised paper
 
-2.2) Introduction
+2.2) Paper
 
-- In this paper, we decided to focus on the experiments and their results and just provide a minimal explanation of the system; a more detailed description of the system has been given in a paper we published previously, which I cannot specify here without the risk of compromising our anonymity. However, we will look into our system description and try and make it more easily understandable in this context
+-Due to space, we focussed on the experiments and their results. A detailed system description is given in another publication; revised system description for clarity
 
-- The HRTF is used here to convey ONLY the pan (azimuth) angle. In this dimension, the ITD and ILD are sufficient. For the elevation, the pitch of the tone is used and the effectiveness of this mode for transferring elevation information is the focus of these experiments and this paper
+-An HRTF is used to convey ONLY the azimuth, where ITD/IID is sufficient. A pure sine wave is difficult to localise in the tilt dimensions, which is why we use the tone's pitch and this mode's effectiveness is indeed the focus of this work
 
-2.3) Previous Work
+-The target can be explained more clearly; updated text, included figure to show tilt/pan angles and vertical plane wrt the Tango, target and user
 
-- The reviewer provided many helpful references, many of which have now been included in an updated text.
+-Used OpenAL's generic KEMAR model; updated text
 
-2.4) Portable Navigation System
+-We've searched the ICAD database and elsewhere, but couldn't find the work mentioned; reference would be greatly appreciated
 
-- Diagram is updated
+3) Reviewer 2
 
-- I agree, the target can be explained more clearly. Will include it in the updated text.
+-See 1.1
 
-- I have included a new figure to demonstrate the tilt/pan angles and the vertical plane wrt the Tango and user.
-
-2.5) Audio Interface
-
-- We used the generic, unadapted KEMAR model provided in OpenAL. I've updated the text to specify this. But again, we do not use OpenAL to convey the tilt, only the pan/azimuth.
-
-- We have gone through the ICAD database and tried to find the work you mentioned elsewhere as well, but failed. If you could provide a reference, it would be greatly appreciated. 
-
-- We use the high/low pitch to convey high/low targets respectively specifically because of this natural association and included a reference for it already [20]. However, another reference is always good.
-
-2.6) Experiments
-
-- A simple sinusoidal tone, devoid of any additional interesting spectral components, is indeed difficult to localise in the tilt dimension. However, a simple sine wave and the IID/ITD is enough to convey the pan/azimuth
-
-3) Reviewer 2:
-
-The reviewer emphasised the need to position our work better regarding existing literature to highlight the novelty of our work and provided some helpful references. Having read these papers, I believe that with some rewording in the literature review section, we can make it clear how our work and approach differs from what has been done previously. E.g. little work has been done on using non-occluding bonephones with 3D sound cues.  
-
-4) Reviewer 3:
+4) Reviewer 3
 
 4.1) Preface
 
-!!- Signal processing (why did we not do it?)
+-See 1.1
 
-- Before the experiments were conducted, the subjects were given time to look for virtual targets while they could see the screen, allowing them to become familiar with what the `on-target' tone sounds like and what high/low pitches mean. Their time was not restricted and they could tell me when they felt comfortable with the process. I did not include this in the original text due to space concerns, but will update the text.  
+-The subjects were given time to look for virtual targets before they were blindfolded, where they became familiar with the 'on-target' tone and what high/low pitches mean. Time was not restricted and stopped when they felt comfortable with the interface. Space concerns kept this from being included; updated text
 
 4.2) Paper
 
-- Language errors and text suggestions have been fixed 
+-We manipulate the sine wave's frequency, not the timbre, hence frequency modulated; clarified in text
 
-- The tone was frequency-modulated
+-Bonephones are non-occluding (important to the VI) and bypass the pennae, making it necessary to convey the tilt using another mode (pitch in this case)
 
-- Here the pitch refers to the frequency of the tone/sine wave in Hz. I can edit the paper to make this clearer. 
-
-- On our sine wave we only manipulate the wave frequency, not the tone, making it rather simple to manipulate by adjusting the f in sin(2*pi*f)
-
-- We selected bone-conducting headphones because they are discreet and do not occlude ambient sounds; an important factor for a VI user
-
-!!- Bone conduction is low-pass filter. What is an elevated sound source in signal processing theory. 
-
-- [20] explains that human naturally associate high/low pitches with high/low targets. I've added another reference in the updated paper. I feel it is outside the scope of this work to explain this phenomenon in detail.
-
-- More recent references have been included and current ones corrected. 
-
-5) Conclusion
-
-Overall I believe that the biggest issues the reviewers had can mostly be remedied by adding more relevant references to position our work better. Furthermore, most of the ambiguities/confusion can be cleared up with some rewording and explanation and I'm confident that the resulting paper, if accepted, will be a strong contribution to this conference. 
+-The frequency range we use (specified in another paper) is roughly within the human speech range and Walker has shown that attenuation in this range is similar to normal hearing
